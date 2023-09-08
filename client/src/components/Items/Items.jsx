@@ -5,6 +5,7 @@ import location from "../../asets/img/location.svg"
 
 export default function Items({servicesData}) {
   const navigate=useNavigate()
+  console.log(servicesData)
 
   return (
     <div className='items-container'>
