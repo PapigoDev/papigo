@@ -2,7 +2,6 @@ const express=require("express")
 const router=express.Router()
 const Services=require("../models/services");
 
-
 router.post("/post-services",async(req,res)=>{
     try {
         const newServices=new Services(req.body)
@@ -33,7 +32,6 @@ router.get("/get-all-services",async(req,res)=>{
         })
     }
 })
-
 router.get("/get-current-service/:id",async(req,res)=>{
     try {
         const service = await Services.findById(req.params.id)
@@ -48,6 +46,5 @@ router.get("/get-current-service/:id",async(req,res)=>{
         })
     }
 })
-
 
 module.exports=router
