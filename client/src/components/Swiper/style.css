@@ -39,7 +39,6 @@ element.style {
 :root {
     --swiper-theme-color: #fff !important;
 }
-  
 
 @media (max-width: 600px){
     .detail-swiper-image{
