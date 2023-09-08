@@ -1,5 +1,7 @@
 [build]
-  command = "npm run build:client && npm run build:server"
+  [build]
+  command = "cd client && npm run build && cd ../server && npm run build"
+
   publish = "client/build"
   functions = "server/functions"
 
