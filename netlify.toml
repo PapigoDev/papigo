@@ -1,8 +1,10 @@
 [build]
   command = "npm run build:client && npm run build:server"
+  publish = "client/build"
+  functions = "server/functions"
 
 [build.environment]
-  NODE_VERSION = "14" # Укажите версию Node.js, которая необходима для вашего сервера
+  NODE_VERSION = "14"
 
 [[redirects]]
   from = "/api/*"
@@ -11,5 +13,5 @@
 
 [[redirects]]
   from = "/*"
-  to = "/client/build/index.html"
+  to = "/index.html"
   status = 200
