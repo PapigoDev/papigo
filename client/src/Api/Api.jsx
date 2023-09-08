@@ -1,4 +1,5 @@
-export const fetchUrl = "http://localhost:5001"
+// export const fetchUrl = "http://localhost:5001"
+export const fetchUrl = "https://papigo-h5yx1wcl5-mvuqar1.vercel.app/"
 
 export const GetServices=async()=>{
     try {
