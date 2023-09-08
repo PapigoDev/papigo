@@ -13,9 +13,7 @@ export default function SwiperComponent({ images }) {
     <>
       <Swiper
         spaceBetween={30}
-        pagination={{
-          clickable: true,
-        }}
+        pagination={{ clickable: true }}
         modules={[Pagination]}
         className="mySwiper"
         loop={true}

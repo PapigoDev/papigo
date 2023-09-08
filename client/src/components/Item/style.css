@@ -47,6 +47,7 @@
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
 }
 .detail-price-time{
     font-weight: 800;
@@ -74,6 +75,7 @@
     display: flex;
     justify-content: space-between;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .paket-left-title{

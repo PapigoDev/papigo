@@ -34,6 +34,21 @@ router.get("/get-current-detail/:id", async (req, res) => {
         });
     }
 });
+router.get("/get-details", async (req, res) => {
+    const id = req.params.id;
+    try {
+        const details = await Details.find()
+        res.send({
+            success: true,
+            data: details
+        });
+    } catch (error) {
+        res.send({
+            success: false,
+            message: error.message,
+        });
+    }
+});
 
 
 module.exports=router
