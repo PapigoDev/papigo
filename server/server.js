@@ -10,6 +10,7 @@ const PORT=process.env.PORT || 5001
 
 //mongoose here (mongoDB)
 const dbConfig=require("./config/dbConfig")
+const cloudinaryConfig=require("./config/cloudinaryConfig")
 
 //routes
 const servicesRoute=require("./routes/servicesRoute")
