@@ -1,0 +1,29 @@
+.detail-image-container{
+    height: 345px;
+    width: 100%;
+}
+.detail-swiper-image{
+    width: 100%;
+    height: 345px;
+    background-size: cover;
+    background-position: center;
+    object-fit: cover;
+}
+.mySwiper {
+    width: 100%;
+}
+:root {
+    --swiper-pagination-color: #f1f1f1;
+  }
+
+@media (max-width: 600px){
+    .detail-swiper-image{
+        height: 325px;
+    }
+}
+@media (max-width: 412px){
+    .detail-swiper-image{
+        height: 301px;
+    }
+}
+
