@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "./style.css"
 import Item from '../../components/Item/Item'
 import { useParams } from 'react-router-dom';
-import { GetDetail } from '../../Api/Api';
+import { GetCurrentService, GetDetail } from '../../Api/Api';
 import SwiperComponent from '../../components/Swiper/SwiperComponent';
 
 export default function DetailPage() {
@@ -26,14 +26,26 @@ export default function DetailPage() {
       console.log(error)
     }
   }
+  const getDataService = async (id) => {
+    try {
+      const response = await GetCurrentService(id)
+      if(response.success){
+        setServicesData(response.data)
+      }
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   useEffect(() => {
+    getDataService(id)
     getDataDetail(id)
-    const itemFromLocalStorage = localStorage.getItem('selectedItem');
-    if (itemFromLocalStorage) {
-      const selectedItem = JSON.parse(itemFromLocalStorage);
-      setServicesData(selectedItem);
-    }
+    // const itemFromLocalStorage = localStorage.getItem('selectedItem');
+    // if (itemFromLocalStorage) {
+    //   const selectedItem = JSON.parse(itemFromLocalStorage);
+    //   setServicesData(selectedItem);
+    // }
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])

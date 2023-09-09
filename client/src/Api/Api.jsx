@@ -11,6 +11,16 @@ export const GetServices=async()=>{
         return error.message;
     }
 }
+export const GetCurrentService=async(id)=>{
+    try {
+        const response = await fetch(`${fetchUrl}/api/papigo/get-current-service/${id}`);
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        return error.message;
+    }
+}
+
 export const GetDetail=async(id)=>{
     try {
         const response = await fetch(`${fetchUrl}/api/papigo/get-current-detail/${id}`);
