@@ -5,6 +5,10 @@ import location from "../../asets/img/location.svg"
 
 export default function Items({servicesData}) {
   const navigate=useNavigate()
+  const handleClick = (item) => {
+    localStorage.setItem('selectedItem', JSON.stringify(item));
+    navigate(`/detail/${item._id}`);
+  };
 
   return (
     <div className='items-container'>
@@ -12,7 +16,7 @@ export default function Items({servicesData}) {
         <div 
         key={item._id} 
         className='item-container'
-        onClick={() => navigate(`/detail/${item._id}`, { state: { item } })}
+        onClick={() => handleClick(item)}
         >
           <div className='item-left'>
             <div className="item-image">

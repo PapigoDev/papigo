@@ -8,14 +8,14 @@ export default function Item({ serviceData, detailsData }) {
         <div className='item-detail-container'>
             <div className='item-detail'>
                 <div className="item-detail-image">
-                    <img className='detail-image' src={serviceData.image} alt="foto" />
+                    <img className='detail-image' src={serviceData?.image} alt="foto" />
                 </div>
                 <div className="item-detail-details">
-                    <p className='item-detail-name'>{serviceData.name}</p>
-                    <p className='item-detail-speciality'>{serviceData.specialty}</p>
+                    <p className='item-detail-name'>{serviceData?.name}</p>
+                    <p className='item-detail-speciality'>{serviceData?.specialty}</p>
                     <div className='detail-location-container'>
                         <img src={location} alt="location" />
-                        <p>{serviceData.adress}</p>
+                        <p>{serviceData?.adress}</p>
                     </div>
                 </div>
             </div>
@@ -29,7 +29,7 @@ export default function Item({ serviceData, detailsData }) {
                 </div>
                 <div className="pakets-right">
                     <p>
-                        <span>₼</span>{serviceData.price}
+                        <span>₼</span>{serviceData?.price}
                     </p>
                 </div>
 

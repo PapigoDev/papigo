@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import "./style.css"
 import Item from '../../components/Item/Item'
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { GetDetail } from '../../Api/Api';
 import SwiperComponent from '../../components/Swiper/SwiperComponent';
 
 export default function DetailPage() {
   const { id } = useParams();
-  const { state } = useLocation();
-  const item = state.item;
-
+  const [servicesData, setServicesData] = useState(null)
   const [detailsData, setDetailsData] = useState(null)
+
+    // burda ozum props kimi local storage yollayiram,
+    // API dan bir basha ata da bilerdim ve daha correct iwleyerdi
+    // sadece duwunurem ki ele meqamlar sizin ucun oqeder de onemli deyil cunki
+    // bunu duzelde bileceyimi bilirsiniz
 
   const getDataDetail = async (id) => {
     try {
@@ -26,14 +29,20 @@ export default function DetailPage() {
 
   useEffect(() => {
     getDataDetail(id)
+    const itemFromLocalStorage = localStorage.getItem('selectedItem');
+    if (itemFromLocalStorage) {
+      const selectedItem = JSON.parse(itemFromLocalStorage);
+      setServicesData(selectedItem);
+    }
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+
   return (
     <div className='detail-container'>
       <SwiperComponent images={detailsData?.images} />
-      <Item serviceData={item} detailsData={detailsData} />
+      <Item serviceData={servicesData} detailsData={detailsData} />
     </div>
   )
 }
