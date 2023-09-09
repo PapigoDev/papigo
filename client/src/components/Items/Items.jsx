@@ -6,7 +6,7 @@ import location from "../../asets/img/location.svg"
 export default function Items({servicesData}) {
   const navigate=useNavigate()
   const handleClick = (item) => {
-    // localStorage.setItem('selectedItem', JSON.stringify(item));
+    localStorage.setItem('selectedItem', JSON.stringify(item));
     navigate(`/detail/${item._id}`);
   };
 

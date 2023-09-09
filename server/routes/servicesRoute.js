@@ -32,6 +32,7 @@ router.get("/get-all-services",async(req,res)=>{
         })
     }
 })
+// ehtiyyat fetch birden lazim olar
 router.get("/get-current-service/:id",async(req,res)=>{
     try {
         const service = await Services.findById(req.params.id)

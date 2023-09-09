@@ -53,7 +53,6 @@ export default function Item({ serviceData, detailsData }) {
                     </div>
                 ))}
 
-
             </div>
 
         </div>

@@ -2,6 +2,7 @@ const express=require("express")
 const router=express.Router()
 const Details=require("../models/details");
 
+// proektde istifade etmesem bele postman ile data post etmek ucun
 router.post("/post-detail", async (req, res) => {
     try {
         const newDetail = new Details(req.body);
