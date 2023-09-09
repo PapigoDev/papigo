@@ -1,5 +1,6 @@
 // export const fetchUrl = "http://localhost:5001"
-export const fetchUrl = "https://papigo.onrender.com"
+// export const fetchUrl = "https://papigo.onrender.com"
+export const fetchUrl = "https://papigo.vercel.app/"
 
 export const GetServices=async()=>{
     try {
