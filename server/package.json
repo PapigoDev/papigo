@@ -10,8 +10,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "build": "npm build",
-    "vercel-build": "npm run build"
+    "build": "npm build"
   },
   "author": "",
   "license": "ISC",
