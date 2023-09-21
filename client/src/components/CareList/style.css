@@ -1,0 +1,20 @@
+.care-lists{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+.care-list{
+    margin-top: 5%;
+    border-radius: 8px;
+    border: 1px #D0D5DD solid;
+    padding: 10px;
+    height: 93px;
+    width: 163px;
+    cursor: pointer;
+}
+
+.care-list img {
+    position: relative;
+    margin-left: 90px;
+  }

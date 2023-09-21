@@ -1,0 +1,19 @@
+.service-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.service-title-container{
+    height: 64px;
+    display: flex;
+    align-items: center;
+}
+
+.service-title{
+    color: #262626;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 800;
+    font-size: 23px;
+}

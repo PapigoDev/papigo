@@ -93,6 +93,8 @@
     margin-right: 4px;
 }
 
+  
+
 @media (max-width: 412px) {
     .item-detail-container {
         padding: 0 15px;
@@ -125,4 +127,9 @@
     .pakets-items {
         align-items: flex-end;
     }
+    .modal{
+        width: 100%;
+
+    }
 }
+

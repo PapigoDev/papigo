@@ -1,8 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./style.css";
 import location from "../../asets/img/location.svg"
+import ModalPage from '../ModalPage/ModalPage';
 
 export default function Item({ serviceData, detailsData }) {
+
+    const [selectedItem, setSelectedItem] = useState(null);
+
+     // Функция для открытия модального окна
+  const openModal = (item) => {
+    setSelectedItem(item);
+    // Дополнительный код для открытия модального окна
+  };
+
+  // Функция для закрытия модального окна
+  const closeModal = () => {
+    setSelectedItem(null);
+    // Дополнительный код для закрытия модального окна
+  };
+
+  const handleModalClick = (e) => {
+    // Если пользователь кликнул по фону модального окна (modal-container), закрываем модальное окно
+    if (e.target.classList.contains("modal-container")) {
+      closeModal();
+    }
+  };
+
     
     return (
         <div className='item-detail-container'>
@@ -39,7 +62,11 @@ export default function Item({ serviceData, detailsData }) {
 
                 {detailsData && detailsData.paket.map((item) => (
 
-                    <div key={item.name} className='pakets-items'>
+                    <div 
+                    key={item.name} 
+                    className='pakets-items'
+                   onClick={() => openModal(item)}
+                    >
                         <div className="pakets-left">
                             <p className="paket-left-title">{item.name}</p>
                             <p className="paket-left-service">İt gəzdirmə</p>
@@ -52,6 +79,10 @@ export default function Item({ serviceData, detailsData }) {
                         </div>
                     </div>
                 ))}
+
+                {selectedItem  && ( <ModalPage selectedItem={selectedItem} handleModalClick={handleModalClick}/>
+                   
+                )}
 
             </div>
 

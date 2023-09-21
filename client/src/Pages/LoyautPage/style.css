@@ -30,3 +30,7 @@
   .children-container{
     margin-bottom: 10vh;
   }
+
+  .home-page{
+    background-color: white !important;
+  }

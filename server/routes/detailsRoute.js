@@ -21,10 +21,11 @@ router.post("/post-detail", async (req, res) => {
 router.get("/get-details", async (req, res) => {
     const id = req.params.id;
     try {
-        const details = await Details.find()
+        const details = await Details.find().populate("service")
         res.send({
             success: true,
-            data: details
+            data: details,
+            salma:1
         });
     } catch (error) {
         res.send({
@@ -36,7 +37,7 @@ router.get("/get-details", async (req, res) => {
 router.get("/get-current-detail/:id", async (req, res) => {
     const id = req.params.id;
     try {
-        const detail = await Details.findOne({ service: id });
+        const detail = await Details.findOne({ service: id }).populate("service");
         res.send({
             success: true,
             data: detail
