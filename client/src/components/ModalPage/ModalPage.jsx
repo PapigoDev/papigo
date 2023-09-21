@@ -43,13 +43,13 @@ export default function ModalPage({ selectedItem, handleModalClick }) {
                         className='modal-data'
                         onClick={() => handleModalClick(item)}
                     >
-                        <div><img src={span} alt="" />
+                        <div><img src={span} alt="span" />
                         </div>
                         <p>{item.content}</p>
                     </div>
                 ))}
                 </div>
-                <div>
+                <div className='modal-description'>
                     <p>Bütün padşahlardan fərqli olaraq, bu padşah olduqca adil və ağıllı padşah idi.</p>
                 </div>
 

@@ -13,7 +13,7 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 10px;
-    width: 43%;
+    width: 576px;
     height: 377px;
     position: fixed;
     bottom: 0; 
@@ -84,9 +84,27 @@
     color: white;
   }
 
+ @media (max-width: 600px) {
+    .modal{
+        width: 400px;
+        gap: 6px;
+    }
+ }
   @media (max-width: 412px) {
     .modal{
         width: 100%;
-
+        gap: 6px;
+    }
+    .modat-title {
+        font-size: 20px;
+    }
+    .modal-price p {
+        font-size: 38px;
+    }
+    .modal-data p {
+        font-size: 12px;
+    }
+    .modal-description p{
+        font-size: 14px;
     }
   }
