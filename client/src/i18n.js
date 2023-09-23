@@ -4,6 +4,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 i18n
   .use(LanguageDetector)
   .init({
+    lng: 'en', 
     fallbackLng: 'en',
     debug: true,
     resources: {
