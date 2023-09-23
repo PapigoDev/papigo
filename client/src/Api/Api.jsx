@@ -2,9 +2,11 @@
 // export const fetchUrl = "https://papigo.onrender.com"
 export const fetchUrl = "https://papigo-3qnt-git-main-mvuqar1.vercel.app"
 
-export const GetServices=async()=>{
+
+
+export const GetServices=async(selectedLanguage)=>{
     try {
-        const response = await fetch(`${fetchUrl}/api/papigo/get-all-services`);
+        const response = await fetch(`${fetchUrl}/api/papigo/get-all-services-lang-filter?lang=${selectedLanguage}`);
         const data = await response.json();
         return data;
     } catch (error) {

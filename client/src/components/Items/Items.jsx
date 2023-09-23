@@ -27,7 +27,7 @@ export default function Items({servicesData}) {
               <p>{item.specialty}</p>
               <div className='location-container'>
                 <img src={location} alt="location" />
-                <p>{item.adress}</p>
+                <p>{item.address}</p>
               </div>
             </div>
           </div>

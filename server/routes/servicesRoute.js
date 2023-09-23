@@ -3,6 +3,7 @@ const router=express.Router()
 const Services=require("../models/services");
 
 router.post("/post-services",async(req,res)=>{
+    console.log(req.body)
     try {
         const newServices=new Services(req.body)
         await newServices.save()
@@ -24,6 +25,31 @@ router.get("/get-all-services",async(req,res)=>{
             succes:true,
             message:"Services Fetched successfully",
             data:services
+        })
+    } catch (error) {
+        res.send({
+            succes:false,
+            message:error.message
+        })
+    }
+})
+router.get("/get-all-services-lang-filter",async(req,res)=>{
+    const lang = req.query.lang;
+    console.log(lang)
+    try {
+        const services=await Services.find()
+
+        const filteredData = services.map(service => {
+            return {
+                ...service.toObject(),
+                name: service.name[lang],
+                specialty: service.specialty[lang],
+            };
+        });
+        res.send({
+            succes:true,
+            message:"Services Fetched successfully",
+            data:filteredData
         })
     } catch (error) {
         res.send({

@@ -8,13 +8,15 @@ import SpinnerContext from '../../Context/SpinnerContext/SpinnerContext';
 export default function ServicePage() {
   const {showSpinner,setShowSpinner } = useContext(SpinnerContext);
   const [servicesData, setServicesData] = useState(null);
-  const { t } = useTranslation();
+  const { t,i18n } = useTranslation();
+  const selectedLanguage = i18n.language;
+
 
   useEffect(() => {
     const getDataServices = async () => {
       // setShowSpinner(true); // SPINNERI YANDIR
       try {
-        const response = await GetServices();
+        const response = await GetServices(selectedLanguage);
         if (response.succes) {
           setServicesData(response.data);
           console.log(response);
