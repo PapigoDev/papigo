@@ -34,7 +34,7 @@ router.get("/get-all-services",async(req,res)=>{
     }
 })
 router.get("/get-all-services-lang-filter",async(req,res)=>{
-    const lang = req.query.lang;
+    let lang = req.query.lang || "en";
     console.log(lang)
     try {
         const services=await Services.find()
