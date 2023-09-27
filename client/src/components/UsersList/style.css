@@ -1,0 +1,32 @@
+.login-container ,.login-exit-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login-exit-container{
+    gap: 5px;
+}
+.login-exit-container button {
+    background-color: #406ff1; /* Цвет фона кнопки */
+    color: #ffffff; /* Цвет текста кнопки */
+    padding: 8px 16px; /* Размеры отступов вокруг текста кнопки */
+    border: none; /* Убираем границу кнопки */
+    cursor: pointer; /* Задаем стандартный курсор при наведении на кнопку */
+    border-radius: 4px; /* Закругляем углы кнопки */
+    font-weight: bold; /* Жирный текст */
+  }
+.login-table-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login-table-container table{
+    width: 100%;
+}
+
+.login-table-container th,
+.login-table-container td {
+  text-align: center; /* Выравнивание содержимого по центру */
+  padding: 8px; /* Добавление отступов для лучшего визуального восприятия */
+}

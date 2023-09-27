@@ -1,0 +1,32 @@
+.detail-container{
+    margin-top: 37px;
+    width: 586px;
+}
+.detail-image-container{
+    height: 345px;
+
+}
+.detail-image{
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 600px){
+    .detail-container{
+        margin-top: 37px;
+        width: 400px;
+    }
+}
+@media (max-width: 412px){
+    .detail-container{
+        margin-top: 37px;
+        width: 100vw;
+    }
+    .mySwiper {
+        width: 100%;
+    }
+
+    .detail-image-container {
+        height: auto; /* Установите высоту изображений по содержимому */
+    }
+}

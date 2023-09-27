@@ -1,34 +1,34 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import "./style.css";
-import Items from '../../components/Items/Items'
+import Walkers from '../../components/Walkers/Walkers'
 import { GetServices } from '../../Api/Api'
 import SpinnerContext from '../../Context/SpinnerContext/SpinnerContext';
 
 export default function ServicePage() {
   const {showSpinner,setShowSpinner } = useContext(SpinnerContext);
-  const [servicesData, setServicesData] = useState(null);
+  const [walkers, setWalkersData] = useState(null);
   const { t,i18n } = useTranslation();
   const selectedLanguage = i18n.language;
 
+  const getDataWalkers = async () => {
+    // setShowSpinner(true); // SPINNERI YANDIR
+    try {
+      const response = await GetServices(selectedLanguage);
+      if (response.succes) {
+        setWalkersData(response.data);
+        console.log(response);
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      // setShowSpinner(false); // SPINERI SONDUR
+    }
+  };
 
   useEffect(() => {
-    const getDataServices = async () => {
-      // setShowSpinner(true); // SPINNERI YANDIR
-      try {
-        const response = await GetServices(selectedLanguage);
-        if (response.succes) {
-          setServicesData(response.data);
-          console.log(response);
-        }
-      } catch (error) {
-        console.log(error);
-      } finally {
-        // setShowSpinner(false); // SPINERI SONDUR
-      }
-    };
-
-    getDataServices();
+    getDataWalkers();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -36,7 +36,7 @@ export default function ServicePage() {
       <div className='service-title-container'>
         <p className='service-title'>{t("service-title")}</p>
       </div>
-      <Items servicesData={servicesData} />
+      <Walkers walkers={walkers} />
     </div>
   )
 }
