@@ -125,9 +125,9 @@ export default function EditModal({ selectedWalkerId, closeModal,updateWalkers }
           <input type="text" name="specialtyRu" placeholder={"specialty Ru"} value={formData?.specialtyRu} onChange={handleChange} />
           <input type="text" name="specialtyEn" placeholder={"specialty En"} value={formData?.specialtyEn} onChange={handleChange} />
         </div>
-        <input type="text" name="addressAz" value={formData?.addressAz} onChange={handleChange} />
-        <input type="text" name="addressRu" value={formData?.addressRu} onChange={handleChange} />
-        <input type="text" name="addressEn" value={formData?.addressEn} onChange={handleChange} />
+        <input type="text" name="addressAz" placeholder={"address Az"} value={formData?.addressAz} onChange={handleChange} />
+        <input type="text" name="addressRu" placeholder={"address Ru"} value={formData?.addressRu} onChange={handleChange} />
+        <input type="text" name="addressEn" placeholder={"address En"} value={formData?.addressEn} onChange={handleChange} />
         <div>
         <input type="text" name="price" value={formData?.price} onChange={handleChange} />
         </div>
