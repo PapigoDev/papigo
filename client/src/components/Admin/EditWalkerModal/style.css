@@ -1,4 +1,4 @@
-.modal-edit-detail {
+.edit-walker-modal {
     display: flex;
     flex-direction: column;
 
@@ -13,26 +13,16 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     z-index: 9999;
 }
-
-.modal-edit-content {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-}
-
-.modal-edit-description {
-    margin-top: 45px;
-}
-
-.edit-modal-image-container {
-    display: flex;
+.modal-image-container{
     width: 120px;
     height: 120px;
-    gap: 5px;
 }
-
-.modal-image {
+.modal-image{
     width: 100%;
     height: 100%;
     border-radius: 50%;
+}
+.edit-walker-image-flex{
+    display: flex;
+    justify-content: space-between;
 }

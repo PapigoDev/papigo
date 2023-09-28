@@ -10,7 +10,7 @@ import i18n from './i18n';
 import { SpinnerProvider } from './Context/SpinnerContext/SpinnerContext';
 import LoginPage from './Pages/LoginPage/LoginPage';
 import AdminPage from './Pages/AdminPage/AdminPage';
-import ProtectedPage from './components/ProtectedPage/ProtectedPage';
+import ProtectedPage from './components/Admin/ProtectedPage/ProtectedPage';
 import AdminDetailPage from './Pages/AdminDetailPage/AdminDetailPage';
 
 function App() {

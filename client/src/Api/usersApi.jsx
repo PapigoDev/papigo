@@ -1,21 +1,6 @@
 import { fetchInstance, fetchUrl } from "./fetchInstance.jsx"
 
 
-export const PutDetail = async (payload) => {
-    try {
-        const request = await fetch(`${fetchUrl}/api/user/register`, {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(payload)
-        })
-        const data = await request.json()
-        return data
-    } catch (error) {
-        return error.message
-    }
-}
 export const RegisterUser = async (payload) => {
     try {
         const request = await fetch(`${fetchUrl}/api/user/register`, {
@@ -66,7 +51,6 @@ export const GetAllUsers = async () => {
 };
 
 export const UserStatusUpdate = async (id,status) => {
-    console.log(id,status)
     try {
         const request = await fetch(`${fetchUrl}/api/user/update-user-status/${id}`,{
             method: "PUT",
@@ -77,7 +61,6 @@ export const UserStatusUpdate = async (id,status) => {
             body: JSON.stringify(status)
         })
         const data = await request.json()
-        console.log(data)
         return data
     } catch (error) {
         return error.message
@@ -91,20 +74,6 @@ export const UploadImage = async (payload) => {
             body: payload
         })
         const data = await response.json()
-        console.log(data)
-        return data
-    } catch (error) {
-        return error.message
-    }
-}
-export const UploadImageDetails = async (payload) => {
-    try {
-        const response = await fetch(`${fetchUrl}/api/papigo/upload-image-to-walker-detail`, {
-            method: "POST",
-            body: payload
-        })
-        const data = await response.json()
-        console.log(data)
         return data
     } catch (error) {
         return error.message

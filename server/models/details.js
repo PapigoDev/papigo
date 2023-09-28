@@ -1,33 +1,25 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-const descriptionSchema = {
-  az: String,
-  ru: String,
-  en: String,
-};
-const weekWalkSchema = {
-  az: String,
-  ru: String,
-  en: String,
-};
 
-const detailsSchema = new mongoose.Schema(
-  {
-    images: { type: Array, default: [] },
-    description: descriptionSchema,
+const nameSchema = new mongoose.Schema({
+    az: String,
+    ru: String,
+    en: String
+});
+
+const detailsSchema = new mongoose.Schema({
+    images: [String],
+    description: nameSchema,
     paket: [
-      {
-        name: String,
-        price: Number,
-        weekWalk:weekWalkSchema
-      }
+        {
+            name: String,
+            price: Number,
+            weekWalker: nameSchema
+        }
     ],
-    service: { type: mongoose.Schema.Types.ObjectId, ref: "services" }
-  },
-  {
-    timestamps: true
-  }
-);
+    service: String
+});
 
-const Details = mongoose.model("details", detailsSchema);
+const Details = mongoose.model('details', detailsSchema);
+
 module.exports = Details;

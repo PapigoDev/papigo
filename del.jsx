@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { GetDetailWithoutLanguage, UpdateDetail } from '../../Api/Api';
+import { GetDetailWithoutLanguage, UpdateDetail } from '../../../Api/DetailsApi';
 import "./style.css"
-import { UploadImageDetails } from '../../Api/usersApi';
+import { UploadImageDetails } from '../../../Api/DetailsApi';
 
 export default function EditWalkerDetail({ selectedWalkerDetailId, setEditWalkerModalOpen, updateWalkerDetail }) {
 
@@ -42,6 +42,7 @@ export default function EditWalkerDetail({ selectedWalkerDetailId, setEditWalker
     }
   }, [detailData]);
 
+  // eslint-disable-next-line no-unused-vars
   const [selectedImageIndex, setSelectedImageIndex] = useState(0); // Индекс выбранного изображения
 
 

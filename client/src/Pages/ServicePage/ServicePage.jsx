@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import "./style.css";
 import Walkers from '../../components/Walkers/Walkers'
-import { GetServices } from '../../Api/Api'
+import { GetWalkers } from '../../Api/WalkersApi'
 import SpinnerContext from '../../Context/SpinnerContext/SpinnerContext';
 
 export default function ServicePage() {
@@ -14,7 +14,7 @@ export default function ServicePage() {
   const getDataWalkers = async () => {
     // setShowSpinner(true); // SPINNERI YANDIR
     try {
-      const response = await GetServices(selectedLanguage);
+      const response = await GetWalkers(selectedLanguage);
       if (response.succes) {
         setWalkersData(response.data);
         console.log(response);

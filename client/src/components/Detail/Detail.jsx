@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./style.css";
-import location from "../../asets/img/location.svg"
-import ModalPage from '../ModalPage/ModalPage';
+import location from "../../assets/img/location.svg"
+import ModalPage from '../Admin/ModalPage/ModalPage';
 import { useTranslation } from 'react-i18next';
 
 
@@ -66,7 +66,7 @@ export default function Item({ walkerData, detailsData, userRole }) {
                                     <div className="pakets-left">
                                         <p className="paket-left-title">{item.name}</p>
                                         <p className="paket-left-service">{walkerData?.specialty}</p>
-                                        <p className="paket-left-week">Həftədə 2 dəfə 1 saat</p>
+                                        <p className="paket-left-week">{item.weekWalker}</p>
                                     </div>
                                     <div className="pakets-right">
                                         <p>
@@ -121,7 +121,7 @@ export default function Item({ walkerData, detailsData, userRole }) {
                                     <div className="pakets-left">
                                         <p className="paket-left-title">{item.name}</p>
                                         <p className="paket-left-service">{walkerData?.specialty}</p>
-                                        <p className="paket-left-week">Həftədə 2 dəfə 1 saat</p>
+                                        <p className="paket-left-week">{item.weekWalker}</p>
                                     </div>
                                     <div className="pakets-right">
                                         <p>

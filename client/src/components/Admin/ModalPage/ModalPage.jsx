@@ -1,7 +1,7 @@
 import React from 'react'
 import "./style.css"
-import span from "../../asets/img/span.png"
-import whatsapp from "../../asets/img/whatsapp.png"
+import span from "../../../assets/img/span.png"
+import whatsapp from "../../../assets/img/whatsapp.png"
 
 const data = [
     {

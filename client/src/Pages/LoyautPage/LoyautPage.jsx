@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import logo from "../../asets/img/logo.svg";
+import logo from "../../assets/img/logo.svg";
 import "./style.css";
 import { useNavigate } from 'react-router-dom';
 import Spinner from '../../components/Spiner/Spiner';

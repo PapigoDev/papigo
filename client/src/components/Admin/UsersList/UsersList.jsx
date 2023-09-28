@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import SpinnerContext from '../../Context/SpinnerContext/SpinnerContext';
+import SpinnerContext from '../../../Context/SpinnerContext/SpinnerContext';
 import "./style.css"
 import { useNavigate } from 'react-router-dom';
 
@@ -35,14 +35,14 @@ export default function UsersList({ users }) {
 <div className='login-table-container'>
 
       <table>
-        <thead>
+       {users &&  <thead>
           <tr>
             <th>Name</th>
             <th>Email</th>
             <th>Status</th>
             <th>Action</th>
           </tr>
-        </thead>
+        </thead>}
         <tbody>
           {users?.map((user) => (
             <tr key={user?._id}>

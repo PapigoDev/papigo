@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { GetAllUsers } from '../../Api/usersApi'
-import UsersList from '../../components/UsersList/UsersList'
+import UsersList from '../../components/Admin/UsersList/UsersList'
 import Walkers from '../../components/Walkers/Walkers'
-import { GetServices } from '../../Api/Api'
+import { GetWalkers } from '../../Api/WalkersApi'
 import { useTranslation } from 'react-i18next'
-import AddWalker from '../../components/AddWalker/AddWalker'
+import AddWalker from '../../components/Admin/AddWalker/AddWalker'
 
 export default function AdminPage() {
   const { i18n } = useTranslation();
@@ -31,7 +31,7 @@ export default function AdminPage() {
   const getDataWalkers = async () => {
     // setShowSpinner(true); // SPINNERI YANDIR
     try {
-      const response = await GetServices(selectedLanguage);
+      const response = await GetWalkers(selectedLanguage);
       if (response.succes) {
         setWalkersData(response.data);
       }

@@ -2,15 +2,16 @@ import React, { useEffect, useState } from 'react'
 import "./style.css"
 
 import { useParams } from 'react-router-dom';
-import { GetCurrentService,GetDetail, GetDetailWithoutLanguage } from '../../Api/Api';
 import SwiperComponent from '../../components/Swiper/SwiperComponent';
-import Item from '../../components/Item/Item';
+import Detail from '../../components/Detail/Detail';
 import { useTranslation } from 'react-i18next';
-import EditWalkerDetailModal from '../../components/EditWalkerDetailModal/EditWalkerDetailModal';
+import EditWalkerDetailModal from '../../components/Admin/EditWalkerDetailModal/EditWalkerDetailModal';
+import { GetCurrentWalker } from '../../Api/WalkersApi';
+import { GetDetail } from '../../Api/DetailsApi';
 
 
 export default function AdminEditPage() {
-  const { t,i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const selectedLanguage = i18n.language;
   const { id } = useParams();
   const [walker, setWalkerData] = useState(null);
@@ -33,7 +34,7 @@ export default function AdminEditPage() {
     
     const getDataWalker = async (id,selectedLanguage) => {
       try {
-        const response = await GetCurrentService(id,selectedLanguage)
+        const response = await GetCurrentWalker(id,selectedLanguage)
         if(response.success){
           setWalkerData(response.data)
         }
@@ -67,7 +68,7 @@ export default function AdminEditPage() {
   return (
     <div className='detail-container'>
       <SwiperComponent images={detailsData?.images} />
-      <Item walkerData={walker} detailsData={detailsData} userRole={"login"}/>
+      <Detail walkerData={walker} detailsData={detailsData} userRole={"login"}/>
       <button onClick={openAddWalkerModal}>
         {editWalkerModalOpen ? 'Cancel Detail' : 'Edit Detail'}
       </button>

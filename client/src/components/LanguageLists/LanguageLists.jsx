@@ -2,9 +2,9 @@ import React from 'react'
 import { useTranslation } from 'react-i18next';
 import "./style.css"
 
-import AZ from "../../asets/img/AZ.png"
-import RU from "../../asets/img/RU.png"
-import GB from "../../asets/img/GB.png"
+import AZ from "../../assets/img/AZ.png"
+import RU from "../../assets/img/RU.png"
+import GB from "../../assets/img/GB.png"
 
 const itemsData = [
   {

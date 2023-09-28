@@ -1,10 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import image1 from '../../asets/img/walking.png';
-import image2 from '../../asets/img/grooming.png';
-import image3 from '../../asets/img/kinoloq.png';
-import image4 from '../../asets/img/hotel.png';
+import image1 from '../../assets/img/walking.png';
+import image2 from '../../assets/img/grooming.png';
+import image3 from '../../assets/img/kinoloq.png';
+import image4 from '../../assets/img/hotel.png';
 import "./style.css"
 
 const itemsData = [

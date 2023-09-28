@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./style.css";
-import location from "../../asets/img/location.svg"
-import EditWalkerModal from '../EditWalkerModal/EditWalkerModal';
+import location from "../../assets/img/location.svg"
+import EditWalkerModal from '../Admin/EditWalkerModal/EditWalkerModal';
 
 export default function Walkers({ walkers, userRole,updateWalkers }) {
   const [selectedWalker, setSelectedWalker] = useState(null);

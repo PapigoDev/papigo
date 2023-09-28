@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import './style.css';
-import dog from '../../asets/img/dog.png';
+import dog from '../../assets/img/dog.png';
 import CareList from '../../components/CareList/CareList';
 import i18n from '../../i18n';
 import LanguageLists from '../../components/LanguageLists/LanguageLists';

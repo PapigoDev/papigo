@@ -55,7 +55,7 @@ router.post("/login",async(req,res)=>{
             throw new Error("User is blocked.Contack to Admin")
         }
         //create and assign token
-        const token=jwt.sign({userId:user._id},process.env.jwt_secret,{expiresIn:"1d"})
+        const token=jwt.sign({userId:user._id},process.env.jwt_secret,{expiresIn:"1h"})
         
         //send response
         res.send({

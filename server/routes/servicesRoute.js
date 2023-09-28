@@ -39,6 +39,7 @@ router.get("/get-all-services",async(req,res)=>{
         })
     }
 })
+
 router.get("/get-all-services-lang-filter",async(req,res)=>{
     let lang = req.query.lang || "en";
     try {
@@ -64,8 +65,6 @@ router.get("/get-all-services-lang-filter",async(req,res)=>{
         })
     }
 })
-
-
 router.get("/get-current-service-lang-filter", async (req, res) => {
     const lang = req.query.lang || "en";
     const walkerId = req.query.walkerId;

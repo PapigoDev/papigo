@@ -1,18 +1,19 @@
 const express=require("express")
 const router=express.Router()
 const Details=require("../models/details");
-router.use(express.json());
-
+const authMiddleWare = require("../authMiddleWare/authMiddleWare.jsx");
 const cloudinary = require("../config/cloudinaryConfig")
 const multer = require('multer');
+router.use(express.json());
 
-// proektde istifade etmesem bele postman ile data post etmek ucun
-router.post("/post-detail", async (req, res) => {
-    console.log(req.body)
+router.post("/post-detail",authMiddleWare, async (req, res) => {
+    console.log("Postmandan gelen req.body : ",req.body)
     try {
         const newDetail = new Details(req.body);
         const response=await newDetail.save();
-        // console.log(response)
+        console.log("MongoDb weekWalker: ",response.paket[0].weekWalk);
+        console.log("MongoDb respons : ",response)
+
         res.send({
             success: true,
             message: "Detail created successfully"
@@ -24,7 +25,6 @@ router.post("/post-detail", async (req, res) => {
         });
     }
 });
-
 router.get("/get-details", async (req, res) => {
     const id = req.params.id;
     try {
@@ -70,9 +70,19 @@ router.get("/get-current-detail-lang-filter", async (req, res) => {
             });
         }
 
+        const filteredDescription = detail.description[lang];
+
+        const filteredPaket = detail.paket.map(item => {
+            return {
+                ...item.toObject(),
+                weekWalker: item.weekWalker[lang]
+            };
+        }); 
+
         const filteredData = {
             ...detail.toObject(),
-            description: detail.description[lang],
+            description: filteredDescription,
+            paket: filteredPaket,
         };
 
         res.status(200).json({
@@ -87,8 +97,10 @@ router.get("/get-current-detail-lang-filter", async (req, res) => {
         });
     }
 });
-router.put("/update-detail/:id", async (req, res) => {
+router.put("/update-detail/:id",authMiddleWare, async (req, res) => {
+    console.log("first")
     const detailId = req.params.id;
+    console.log(detailId)
   
     try {
         const updatedDetail = await Details.findOneAndUpdate({ service: detailId },req.body,{ new: true });
@@ -113,8 +125,6 @@ router.put("/update-detail/:id", async (req, res) => {
     }
   });
 
-
-
 //get image from pc
 const storage = multer.diskStorage({
     filename: function (req, file, callback) {
@@ -130,12 +140,14 @@ router.post("/upload-image-to-walker-detail", multer({ storage: storage }).singl
         await Details.findOneAndUpdate({ service: detailId }, {
             $push: { images: result.secure_url }
         })
+        console.log(result.secure_url)
         res.send({
             success: true,
             message: "Image uploaded successfully",
             data: result.secure_url
         })
     } catch (error) {
+        console.log(error)
         res.send({
             success: false,
             message: error.message,
