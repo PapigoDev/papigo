@@ -1,10 +1,9 @@
 .add-walker-modal {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     gap: 10px;
     width: 576px;
-    height: 477px;
+    height: 517px;
     position: fixed;
     bottom: 0; 
     left: 50%;
@@ -15,137 +14,53 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     z-index: 9999;
   }
-
-.items-container {
-    margin-top: 24px;
+  .add-walker-line{
     display: flex;
-    flex-direction: column;
-    gap: 8px;
-    cursor: pointer;
-}
-.item-container {
-    width: 586px;
-    height: 120px;
-    background-color: #FFFFFF !important;
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    border-radius: 10px;
-    color: #414141;
-}
-.item-left {
-    display: flex;
-    gap: 20px;
-}
-.item-image {
-    width: 76px;
-    height: 76px;
-}
-.item-image img {
-    max-width: 100%;
-    border-radius: 50%;
-    height: 100%;
-}
-.item-right {
-    font-weight: bold;
-    font-size: 30px;
-}
-.item-right span {
-    font-size: 12px;
-    margin-right: 2px;
-}
-.item-details {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-}
-.location-container {
-    display: flex;
+    margin-top: 5px;
     gap: 5px;
-    color: #9A9A9A;
-    font-size: 9px;
-}
-
-.add-walker-buttons{
+  }
+  .modal-content input{
+    width: 177px;
+  }
+  .add-walker-buttons{
     margin-top: 10px;
-    display: flex;
+  }
+  
+  @media (max-width: 600px) {
+
+    .add-walker-modal{
+      height: 500px;
+      width: 400px;
+      align-items: center;
+    }
+    .modal-content input{
+      width: 120px;
+    }
+    
+  }
+  @media (max-width: 400px) {
+
+    .add-walker-modal{
+      height: 100%;
+      width: 100%;
+      align-items: center;
+      overflow-y: auto;
+    }
+    .modal-content input{
+      width: 214px;
+      height: 26px;
+      padding: 3px;
+      margin: 2px;
+    }
+    .modal-content{
+      display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    width: 100%;
-    gap: 10px;
-
-}
-
-.cancel-button {
-    background-color: #ff0000; /* Цвет фона кнопки */
-    color: #fff; /* Цвет текста на кнопке */
-    padding: 10px 20px; /* Внутренний отступ кнопки */
-    border: none; /* Убираем границу */
-    border-radius: 5px; /* Закругляем углы кнопки */
-    cursor: pointer; /* Курсор при наведении */
-    font-size: 16px; /* Размер шрифта */
-}
-
-.cancel-button:hover {
-    background-color: #ff3333; /* Цвет фона при наведении */
-}
-
-/* Стили для кнопки "Save" */
-.save-button {
-    background-color: #4caf50; /* Цвет фона кнопки */
-    color: #fff; /* Цвет текста на кнопке */
-    padding: 10px 20px; /* Внутренний отступ кнопки */
-    border: none; /* Убираем границу */
-    border-radius: 5px; /* Закругляем углы кнопки */
-    cursor: pointer; /* Курсор при наведении */
-    font-size: 16px; /* Размер шрифта */
-}
-
-.save-button:hover {
-    background-color: #45a049; /* Цвет фона при наведении */
-}
-
-@media (max-width: 600px) {
-    .item-container {
-        width: 380px;
-        height: 100px;
-        padding: 16px;
+    height: 94%;
     }
-    .item-right {
-        align-self: flex-end;
-        font-weight: bold;
-        font-size: 22px;
+    .add-walker-line{
+      flex-direction: column;
     }
-    .item-right span {
-        font-size: 12px;
-        margin-right: 2px;
-    }
-    .item-details {
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 400px) {
-    .item-container {
-        width: 280px;
-        height: 80px;
-        padding: 12px;
-    }
-    .item-right {
-        align-self: flex-end;
-        font-weight: bold;
-        font-size: 18px;
-        display: flex;
-        align-items: flex-end;
-    }
-    .item-right span {
-        font-size: 10px;
-        margin-right: 2px;
-    }
-    .item-details {
-        font-size: 8px;
-    }
-    .item-image {
-        width: 56px;
-        height: 56px;
-    }
-}
+    
+  }

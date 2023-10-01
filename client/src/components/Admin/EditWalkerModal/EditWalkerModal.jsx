@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { UploadImage } from '../../../Api/usersApi';
-import { GetCurrentWalkerWithoutLanguage, UpdateWalker } from '../../../Api/WalkersApi';
+import { GetCurrentWalkerWithoutLanguage, UpdateWalker,UploadWalkerImage } from '../../../Api/WalkersApi';
 import "./style.css"
 
 
@@ -72,7 +71,7 @@ export default function EditModal({ selectedWalkerId, closeModal, updateWalkers 
       imageFormData.append("productId", selectedWalkerId);
       imageFormData.append("file", selectedFile);
 
-      const response = await UploadImage(imageFormData);
+      const response = await UploadWalkerImage(imageFormData);
       if (response.success) {
         closeModal()
         updateWalkers()
@@ -113,7 +112,14 @@ export default function EditModal({ selectedWalkerId, closeModal, updateWalkers 
         <form className="modal-content">
           <div className='edit-walker-image-flex'>
             <div className='modal-image-container'>
-              <img className='modal-image' src={formData.image} alt={formData?.nameAz} />
+              <img
+                  className='modal-image'
+                  src={!formData?.image || formData?.image.length === 0
+                    ? "https://res.cloudinary.com/dmrh8jdqv/image/upload/v1696154633/papigo/a9rohersuogok1auzgob.png"
+                    : formData?.image
+                  }
+                  alt="walker"
+                />
             </div>
             <div className="file-upload-container">
               <label className="custom-file-upload" htmlFor="file-upload-input">

@@ -35,7 +35,7 @@ export default function CareList() {
   const { t } = useTranslation();
   const handleItemClick = (id) => {
     if (id === 1) {
-      navigate('/service');
+      navigate('/walkers');
     }
   };
   return (

@@ -22,7 +22,7 @@ function App() {
             <BrowserRouter>
               <Routes>
                 <Route path="/" element={<LoyautPage backgroundClass='home-page'><HomePage /></LoyautPage>} />
-                <Route path="/service" element={<LoyautPage ><ServicePage /></LoyautPage>} />
+                <Route path="/walkers" element={<LoyautPage ><ServicePage /></LoyautPage>} />
                 <Route path="/detail/:id" element={<LoyautPage><DetailPage /></LoyautPage>} />
                 <Route path="/login" element={<LoyautPage backgroundClass='home-page'><LoginPage /></LoyautPage>}/>
                 <Route path="/admin" element={<LoyautPage><ProtectedPage><AdminPage /></ProtectedPage></LoyautPage>}/>

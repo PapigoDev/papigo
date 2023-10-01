@@ -3,7 +3,7 @@ import { fetchInstance,fetchUrl } from "./fetchInstance";
 
 export const GetWalkers=async(selectedLanguage)=>{
     try {
-        const response = await fetch(`${fetchUrl}/api/papigo/get-all-services-lang-filter?lang=${selectedLanguage}`);
+        const response = await fetch(`${fetchUrl}/api/papigo/get-all-walkers-lang-filter?lang=${selectedLanguage}`);
         const data = await response.json();
         return data;
     } catch (error) {
@@ -13,7 +13,7 @@ export const GetWalkers=async(selectedLanguage)=>{
 export const GetWalkersWithoutLanguage=async()=>{
 
     try {
-        const response = await fetch(`${fetchUrl}/api/papigo/get-all-services`);
+        const response = await fetch(`${fetchUrl}/api/papigo/get-all-walkers`);
         const data = await response.json();
         return data;
     } catch (error) {
@@ -22,7 +22,7 @@ export const GetWalkersWithoutLanguage=async()=>{
 }
 export const GetCurrentWalker = async (selectedWalkerId, selectedLanguage) => {
     try {
-      const response = await fetch(`${fetchUrl}/api/papigo/get-current-service-lang-filter?lang=${selectedLanguage}&walkerId=${selectedWalkerId}`,
+      const response = await fetch(`${fetchUrl}/api/papigo/get-current-walker-lang-filter?lang=${selectedLanguage}&walkerId=${selectedWalkerId}`,
         {
           method: "GET",
           headers: {
@@ -38,7 +38,7 @@ export const GetCurrentWalker = async (selectedWalkerId, selectedLanguage) => {
 };
 export const GetCurrentWalkerWithoutLanguage=async(id)=>{
     try {
-        const response = await fetch(`${fetchUrl}/api/papigo/get-current-service/${id}`);
+        const response = await fetch(`${fetchUrl}/api/papigo/get-current-walker/${id}`);
         const data = await response.json();
         return data;
     } catch (error) {
@@ -46,10 +46,39 @@ export const GetCurrentWalkerWithoutLanguage=async(id)=>{
     }
 }
 
+export const UploadWalkerImage = async (payload) => {
+    try {
+        const response = await fetch(`${fetchUrl}/api/papigo/upload-image-to-walker`, {
+            method: "POST",
+            body: payload
+        })
+        const data = await response.json()
+        return data
+    } catch (error) {
+        return error.message
+    }
+}
 
+export const AddWalkerApi = async (payload) => {
+    try {
+        const fetchHeaders = fetchInstance().headers;
+        const response = await fetch(`${fetchUrl}/api/papigo/post-walker`, {
+            method: "POST",
+            headers: {
+                ...fetchHeaders,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        })
+        const data = await response.json()
+        return data
+    } catch (error) {
+        return error.message
+    }
+}
 export const UpdateWalker = async (id, payload) => {
     try {
-        const response = await fetch(`${fetchUrl}/api/papigo/update-service/${id}`, {
+        const response = await fetch(`${fetchUrl}/api/papigo/update-walker/${id}`, {
             method: "PUT",
             headers: {
                 ...fetchInstance().headers,
@@ -63,18 +92,17 @@ export const UpdateWalker = async (id, payload) => {
         return error.message
     }
 }
-export const AddWalkerApi = async (payload) => {
+export const DeleteWalker= async (id) => {
+    console.log("DeleteWalker")
     try {
-        const fetchHeaders = fetchInstance().headers;
-        const response = await fetch(`${fetchUrl}/api/papigo/post-service`, {
-            method: "POST",
+        const request = await fetch(`${fetchUrl}/api/papigo/delete-walker/${id}`, {
+            method: "DELETE",
             headers: {
-                ...fetchHeaders,
+                ...fetchInstance().headers,
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(payload)
         })
-        const data = await response.json()
+        const data = await request.json()
         return data
     } catch (error) {
         return error.message

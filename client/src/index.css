@@ -5,3 +5,121 @@
   font-family: 'Poppins', sans-serif;
   /* background-color: #F6F6F6; */
 }
+
+
+/* Basic Button Styles */
+.add-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 5px;
+  background-color: #007BFF; /* Change to your preferred button color */
+  color: #fff; /* Text color */
+  font-size: 16px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.add-button:hover {
+  background-color: #0056b3;
+}
+.add-button:active {
+  background-color: #004699; 
+}
+.add-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #007BFF;
+}
+.cancel-button {
+  background-color: #ff0000;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px; 
+  cursor: pointer;
+  font-size: 16px;
+}
+.cancel-button:hover {
+  background-color: #ff3333;
+}
+.save-button {
+  background-color: #4caf50; 
+  color: #fff; 
+  padding: 10px 20px; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer;
+  font-size: 16px;
+}
+.save-button:hover {
+  background-color: #45a049;
+}
+.edit-button-small {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #17a2b8;
+  color: #fff;
+  font-size: 12px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.edit-button-small:hover {
+  background-color: #117a8b; /* Change to a darker shade for hover effect */
+}
+.edit-button-small:active {
+  background-color: #0e5b67;
+}
+.edit-button-small:focus {
+  outline: none; 
+  box-shadow: 0 0 0 2px #17a2b8;
+}
+.delete-button {
+  background-color: #ff0000;
+  color: #ffffff;
+  border: none; 
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.delete-button:hover {
+  background-color: #ff3333;
+}
+.delete-button-small {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #dc3545;
+  color: #fff;
+  font-size: 12px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.delete-button-small:hover {
+  background-color: #f44336;
+}
+.delete-button-small:active {
+  background-color: #a61b2d;
+}
+.delete-button-small:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #dc3545;
+}
+.exit-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  font-size: 14px;
+  background-color: #f44336;
+  color: #fff; 
+  border: none;
+  border-radius: 4px; 
+  cursor: pointer;
+}
+.exit-button:hover {
+  background-color: #d32f2f;
+}
+

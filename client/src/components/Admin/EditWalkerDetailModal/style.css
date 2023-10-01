@@ -50,18 +50,6 @@
     border-radius: 50%;
 }
 
-.delete-button {
-    background-color: #ff0000; /* Красный цвет фона */
-    color: #ffffff; /* Белый цвет текста */
-    border: none; /* Убираем границу */
-    padding: 5px 10px; /* Поля вокруг текста */
-    cursor: pointer; /* Заменяем указатель на руку при наведении */
-    border-radius: 4px; /* Скругление углов */
-  }
-  
-  .delete-button:hover {
-    background-color: #ff3333; /* Изменяем цвет фона при наведении */
-  }
 
 
 

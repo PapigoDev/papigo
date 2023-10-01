@@ -1,6 +1,6 @@
 const express=require("express")
 const router=express.Router()
-const Services=require("../models/services");
+const Walkers=require("../models/walkersModels");
 const cloudinary = require("../config/cloudinaryConfig")
 const multer = require('multer');
 const mongoose = require('mongoose');
@@ -8,14 +8,15 @@ router.use(express.json());
 const authMiddleWare = require("../authMiddleWare/authMiddleWare.jsx");
 
 
-router.post("/post-service",authMiddleWare,async(req,res)=>{
+router.post("/post-walker",authMiddleWare,async(req,res)=>{
     try {
-        const newServices=new Services(req.body)
-        const savedService =await newServices.save()
+        // req.body.image = ["https://res.cloudinary.com/dmrh8jdqv/image/upload/v1696119218/papigo/engqq3qoxlzsbs7oejsv.png"];
+        const newWalkers=new Walkers(req.body)
+        const savedWalker =await newWalkers.save()
         res.send({
             succes:true,
-            message:"Services created succesfull",
-            data: savedService._id
+            message:"Walkers created succesfull",
+            data: savedWalker._id
         })
     } catch (error) {
         res.send({
@@ -24,13 +25,13 @@ router.post("/post-service",authMiddleWare,async(req,res)=>{
         })
     }
 })
-router.get("/get-all-services",async(req,res)=>{
+router.get("/get-all-walkers",async(req,res)=>{
     try {
-        const services=await Services.find()
+        const walkers=await Walkers.find()
         res.send({
             succes:true,
-            message:"Services Fetched successfully",
-            data:services
+            message:"Walkers Fetched successfully",
+            data:walkers
         })
     } catch (error) {
         res.send({
@@ -40,23 +41,23 @@ router.get("/get-all-services",async(req,res)=>{
     }
 })
 
-router.get("/get-all-services-lang-filter",async(req,res)=>{
+router.get("/get-all-walkers-lang-filter",async(req,res)=>{
     let lang = req.query.lang || "en";
     try {
-        const services=await Services.find()
+        const walkers=await Walkers.find()
 
-        const filteredData = services.map(service => {
+        const filteredWalkersData = walkers.map(walker => {
             return {
-                ...service.toObject(),
-                name: service.name[lang],
-                specialty: service.specialty[lang],
-                address: service.address[lang],
+                ...walker.toObject(),
+                name: walker.name[lang],
+                specialty: walker.specialty[lang],
+                address: walker.address[lang],
             };
         });
         res.send({
             succes:true,
-            message:"Services Fetched successfully",
-            data:filteredData
+            message:"Walkers Fetched successfully",
+            data:filteredWalkersData
         })
     } catch (error) {
         res.send({
@@ -65,31 +66,31 @@ router.get("/get-all-services-lang-filter",async(req,res)=>{
         })
     }
 })
-router.get("/get-current-service-lang-filter", async (req, res) => {
+router.get("/get-current-walker-lang-filter", async (req, res) => {
     const lang = req.query.lang || "en";
     const walkerId = req.query.walkerId;
 
     try {
-        const service = await Services.findById(walkerId);
+        const walker = await Walkers.findById(walkerId);
 
-        if (!service) {
+        if (!walker) {
             return res.status(404).json({
                 success: false,
-                message: "Service not found",
+                message: "Walker not found",
             });
         }
 
-        const filteredData = {
-            ...service.toObject(),
-            name: service.name[lang],
-            specialty: service.specialty[lang],
-            address: service.address[lang],
+        const filteredWalkerData = {
+            ...walker.toObject(),
+            name: walker.name[lang],
+            specialty: walker.specialty[lang],
+            address: walker.address[lang],
         };
 
         res.status(200).json({
             success: true,
-            message: "Service Fetched successfully",
-            data: filteredData,
+            message: "Walkers Fetched successfully",
+            data: filteredWalkerData,
         });
     } catch (error) {
         res.status(500).json({
@@ -100,22 +101,22 @@ router.get("/get-current-service-lang-filter", async (req, res) => {
 });
 
 
-router.put("/update-service/:id",authMiddleWare, async (req, res) => {
-    const serviceId = req.params.id;
+router.put("/update-walker/:id",authMiddleWare, async (req, res) => {
+    const walkerId = req.params.id;
     try {
-        const updatedService = await Services.findByIdAndUpdate(serviceId,req.body,{ new: true });
+        const updatedWalker = await Walkers.findByIdAndUpdate(walkerId,req.body,{ new: true });
 
-      if (!updatedService) {
+      if (!updatedWalker) {
         return res.status(404).json({
           success: false,
-          message: "Service not found",
+          message: "Walker not found",
         });
       }
   
       res.status(200).json({
         success: true,
-        message: "Service updated successfully",
-        data: updatedService,
+        message: "Walker updated successfully",
+        data: updatedWalker,
       });
     } catch (error) {
       res.status(500).json({
@@ -124,17 +125,31 @@ router.put("/update-service/:id",authMiddleWare, async (req, res) => {
       });
     }
   });
+  router.delete("/delete-walker/:id",authMiddleWare, async (req, res) => {
+    try {
+        await Walkers.findByIdAndDelete(req.params.id)
+        res.send({
+            success: true,
+            message: "Walker delete successfully"
+        })
+    } catch (error) {
+        res.send({
+            success: false,
+            message: error.message
+        })
+    }
+})
 
   
 
 
 // ehtiyyat fetch birden lazim olar
-router.get("/get-current-service/:id",async(req,res)=>{
+router.get("/get-current-walker/:id",async(req,res)=>{
     try {
-        const service = await Services.findById(req.params.id)
+        const walker = await Walkers.findById(req.params.id)
         res.send({
             success: true,
-            data:service
+            data:walker
         })
     } catch (error) {
         res.send({
@@ -156,12 +171,12 @@ router.post("/upload-image-to-walker", multer({ storage: storage }).single("file
         //upload image to cloudinary
         const result = await cloudinary.uploader.upload(req.file.path, { folder: "papigo" })
         const productId = req.body.productId
-        await Services.findByIdAndUpdate(productId, {
+        await Walkers.findByIdAndUpdate(productId, {
             $set: { image: result.secure_url }
         })
         res.send({
             success: true,
-            message: "Image uploaded successfully",
+            message: "Walker image uploaded successfully",
             data: result.secure_url
         })
     } catch (error) {

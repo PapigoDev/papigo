@@ -69,3 +69,19 @@ export const UploadImageDetails = async (payload) => {
         return error.message
     }
 }
+
+export const DeleteDetail= async (id) => {
+    try {
+        const request = await fetch(`${fetchUrl}/api/papigo/delete-detail/${id}`, {
+            method: "DELETE",
+            headers: {
+                ...fetchInstance().headers,
+                'Content-Type': 'application/json'
+            },
+        })
+        const data = await request.json()
+        return data
+    } catch (error) {
+        return error.message
+    }
+}

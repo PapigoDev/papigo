@@ -3,8 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import "./style.css";
 import location from "../../assets/img/location.svg"
 import EditWalkerModal from '../Admin/EditWalkerModal/EditWalkerModal';
+import { BiEditAlt } from 'react-icons/bi';
+import { RiDeleteBin5Line } from 'react-icons/ri';
+import { DeleteWalker } from "../../Api/WalkersApi"
+import { DeleteDetail } from '../../Api/DetailsApi';
 
-export default function Walkers({ walkers, userRole,updateWalkers }) {
+
+
+export default function Walkers({ walkers, userRole, updateWalkers }) {
   const [selectedWalker, setSelectedWalker] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -12,22 +18,29 @@ export default function Walkers({ walkers, userRole,updateWalkers }) {
   const navigate = useNavigate()
 
   const handleClick = (item) => {
-    if (userRole === 'login'){
-      // localStorage.setItem('selectedItem', JSON.stringify(item));
+    if (userRole === 'login') {
       navigate(`/admin/detail/${item._id}`);
     }
-    else{
-      // localStorage.setItem('selectedItem', JSON.stringify(item));
+    else {
       navigate(`/detail/${item._id}`);
     }
   };
-  const handleModal = (item, event) => {
-    if (userRole === 'login') {
-      event.stopPropagation();
-      setSelectedWalker(item);
-      setIsModalOpen(true);
-    }
+  const handleModalEdit = (item, event) => {
+    event.stopPropagation();
+    setSelectedWalker(item);
+    setIsModalOpen(true);
   };
+  const deleteWalker = async (item, event) => {
+    event.stopPropagation();
+    const response = await DeleteWalker(item._id)
+    if (response.success) {
+      await DeleteDetail(item._id)
+      updateWalkers()
+    }
+
+
+  };
+
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedWalker(null);
@@ -44,7 +57,14 @@ export default function Walkers({ walkers, userRole,updateWalkers }) {
           >
             <div className='item-left'>
               <div className="item-image">
-                <img className='image' src={item?.image} alt="foto" />
+              <img
+                  className='image'
+                  src={!item?.image || item?.image.length === 0
+                    ? "https://res.cloudinary.com/dmrh8jdqv/image/upload/v1696154633/papigo/a9rohersuogok1auzgob.png"
+                    : item?.image
+                  }
+                  alt="foto"
+                />
               </div>
               <div className="item-details">
                 <h3>{item?.name}</h3>
@@ -57,7 +77,11 @@ export default function Walkers({ walkers, userRole,updateWalkers }) {
             </div>
             <div className="item-right">
               <p><span>₼</span>{item?.price}</p>
-              <button onClick={(event) => handleModal(item, event)}>Edit</button>
+              <div className='walker-buttons'>
+                <button className="edit-button-small" onClick={(event) => handleModalEdit(item, event)}><BiEditAlt /></button>
+                <button className="delete-button-small" onClick={(event) => deleteWalker(item, event)} ><RiDeleteBin5Line /></button>
+
+              </div>
             </div>
           </div>
         ))) :
@@ -69,7 +93,14 @@ export default function Walkers({ walkers, userRole,updateWalkers }) {
           >
             <div className='item-left'>
               <div className="item-image">
-                <img className='image' src={item?.image} alt="foto" />
+                <img
+                  className='image'
+                  src={!item?.image || item?.image.length === 0
+                    ? "https://res.cloudinary.com/dmrh8jdqv/image/upload/v1696154633/papigo/a9rohersuogok1auzgob.png"
+                    : item?.image
+                  }
+                  alt="foto"
+                />
               </div>
               <div className="item-details">
                 <h3>{item?.name}</h3>

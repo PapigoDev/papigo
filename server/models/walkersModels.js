@@ -4,9 +4,9 @@ const nameSchema = {
     ru: String,
     az: String,
 };
-const servicesSchema = new mongoose.Schema(
+const walkersSchema = new mongoose.Schema(
     {
-        image: { type: Array, default: [] },
+        image: { type: Array },
         name: nameSchema,
         specialty: nameSchema,
         address: nameSchema,
@@ -17,5 +17,5 @@ const servicesSchema = new mongoose.Schema(
     }
 );
 
-const Services = mongoose.model("services", servicesSchema);
-module.exports = Services;
+const Walkers = mongoose.model("walkers", walkersSchema);
+module.exports = Walkers;

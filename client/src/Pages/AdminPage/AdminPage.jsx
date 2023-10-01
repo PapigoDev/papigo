@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { GetAllUsers } from '../../Api/usersApi'
+import { GetAllUsers } from '../../Api/UsersApi'
 import UsersList from '../../components/Admin/UsersList/UsersList'
 import Walkers from '../../components/Walkers/Walkers'
 import { GetWalkers } from '../../Api/WalkersApi'
 import { useTranslation } from 'react-i18next'
 import AddWalker from '../../components/Admin/AddWalker/AddWalker'
+import { GoPersonAdd } from 'react-icons/go';
 
 export default function AdminPage() {
   const { i18n } = useTranslation();
@@ -67,8 +68,8 @@ export default function AdminPage() {
     <div>
       <UsersList users={users} />
       <Walkers walkers={walkers} userRole={"login"} updateWalkers={updateWalkers} />
-      <button onClick={openAddWalkerModal}>
-        {addWalkerModalOpen ? 'Close Modal' : 'Add Walker'}
+      <button className="add-button" onClick={openAddWalkerModal}>
+        <GoPersonAdd /> Add Walker
       </button>
       {addWalkerModalOpen && <AddWalker setAddWalkerModalOpen={setAddWalkerModalOpen} updateWalkers={updateWalkers} />}
 

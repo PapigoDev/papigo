@@ -1,19 +1,15 @@
 const express=require("express")
 const router=express.Router()
-const Details=require("../models/details");
+const Details=require("../models/detailsModels");
 const authMiddleWare = require("../authMiddleWare/authMiddleWare.jsx");
 const cloudinary = require("../config/cloudinaryConfig")
 const multer = require('multer');
 router.use(express.json());
 
 router.post("/post-detail",authMiddleWare, async (req, res) => {
-    console.log("Postmandan gelen req.body : ",req.body)
     try {
         const newDetail = new Details(req.body);
         const response=await newDetail.save();
-        console.log("MongoDb weekWalker: ",response.paket[0].weekWalk);
-        console.log("MongoDb respons : ",response)
-
         res.send({
             success: true,
             message: "Detail created successfully"
@@ -26,13 +22,11 @@ router.post("/post-detail",authMiddleWare, async (req, res) => {
     }
 });
 router.get("/get-details", async (req, res) => {
-    const id = req.params.id;
     try {
-        const details = await Details.find().populate("service")
+        const details = await Details.find().populate("walker")
         res.send({
             success: true,
             data: details,
-            salma:1
         });
     } catch (error) {
         res.send({
@@ -44,7 +38,7 @@ router.get("/get-details", async (req, res) => {
 router.get("/get-current-detail/:id", async (req, res) => {
     const id = req.params.id;
     try {
-        const detail = await Details.findOne({ service: id }).populate("service");
+        const detail = await Details.findOne({ service: id }).populate("walker");
         res.send({
             success: true,
             data: detail
@@ -61,7 +55,7 @@ router.get("/get-current-detail-lang-filter", async (req, res) => {
     const walkerId = req.query.walkerId;
 
     try {
-        const detail = await Details.findOne({ service: walkerId });
+        const detail = await Details.findOne({ walker: walkerId });
 
         if (!detail) {
             return res.status(404).json({
@@ -103,7 +97,7 @@ router.put("/update-detail/:id",authMiddleWare, async (req, res) => {
     console.log(detailId)
   
     try {
-        const updatedDetail = await Details.findOneAndUpdate({ service: detailId },req.body,{ new: true });
+        const updatedDetail = await Details.findOneAndUpdate({ walker: detailId },req.body,{ new: true });
   
       if (!updatedDetail) {
         return res.status(404).json({
@@ -151,6 +145,21 @@ router.post("/upload-image-to-walker-detail", multer({ storage: storage }).singl
         res.send({
             success: false,
             message: error.message,
+        })
+    }
+})
+
+router.delete("/delete-detail/:id", async (req, res) => {
+    try {
+        await Details.findOneAndDelete({ walker: req.params.id })
+        res.send({
+            success: true,
+            message: "Walker delete successfully"
+        })
+    } catch (error) {
+        res.send({
+            success: false,
+            message: error.message
         })
     }
 })

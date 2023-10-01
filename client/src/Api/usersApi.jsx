@@ -67,15 +67,4 @@ export const UserStatusUpdate = async (id,status) => {
     }
 }
 
-export const UploadImage = async (payload) => {
-    try {
-        const response = await fetch(`${fetchUrl}/api/papigo/upload-image-to-walker`, {
-            method: "POST",
-            body: payload
-        })
-        const data = await response.json()
-        return data
-    } catch (error) {
-        return error.message
-    }
-}
+

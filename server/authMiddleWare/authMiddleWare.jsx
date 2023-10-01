@@ -1,6 +1,7 @@
 const jwt=require("jsonwebtoken")
 
 module.exports=(req,res,next)=>{
+    console.log("first")
     try {
         //get token from header
         const token=req.headers.authorization.split(" ")[1]

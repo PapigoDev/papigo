@@ -29,10 +29,17 @@ export default function Item({ walkerData, detailsData, userRole }) {
                     <div>
                         <div className='item-detail'>
                             <div className="item-detail-image">
-                                <img className='detail-image' src={walkerData?.image} alt="foto" />
+                                <img
+                                    className='detail-image'
+                                    src={!walkerData?.image || walkerData?.image.length === 0
+                                        ? "https://res.cloudinary.com/dmrh8jdqv/image/upload/v1696154633/papigo/a9rohersuogok1auzgob.png"
+                                        : walkerData?.image
+                                    }
+                                    alt="foto"
+                                />
                             </div>
                             <div className="item-detail-details">
-                                <p className='item-detail-name'>{walkerData?.name}111</p>
+                                <p className='item-detail-name'>{walkerData?.name}</p>
                                 <p className='item-detail-speciality'>{walkerData?.specialty}</p>
                                 <div className='detail-location-container'>
                                     <img src={location} alt="location" />
@@ -85,7 +92,14 @@ export default function Item({ walkerData, detailsData, userRole }) {
                     <div>
                         <div className='item-detail'>
                             <div className="item-detail-image">
-                                <img className='detail-image' src={walkerData?.image} alt="foto" />
+                                <img
+                                    className='detail-image'
+                                    src={!walkerData?.image || walkerData?.image.length === 0
+                                        ? "https://res.cloudinary.com/dmrh8jdqv/image/upload/v1696154633/papigo/a9rohersuogok1auzgob.png"
+                                        : walkerData?.image
+                                    }
+                                    alt="foto"
+                                />
                             </div>
                             <div className="item-detail-details">
                                 <p className='item-detail-name'>{walkerData?.name}</p>

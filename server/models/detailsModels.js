@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-
 const nameSchema = new mongoose.Schema({
     az: String,
     ru: String,
@@ -17,7 +16,7 @@ const detailsSchema = new mongoose.Schema({
             weekWalker: nameSchema
         }
     ],
-    service: String
+    walker: {type:mongoose.Schema.Types.ObjectId,ref:"walkers",required:true}
 });
 
 const Details = mongoose.model('details', detailsSchema);

@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { GetCurrentUser } from '../../../Api/usersApi'
+import { GetCurrentUser } from '../../../Api/UsersApi'
 import SpinnerContext from '../../../Context/SpinnerContext/SpinnerContext';
 
 export default function ProtectedPage({children}) {

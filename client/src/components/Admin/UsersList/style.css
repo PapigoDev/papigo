@@ -6,6 +6,7 @@
 
 .login-exit-container{
     gap: 5px;
+    display: flex;
 }
 .login-exit-container button {
     background-color: #406ff1; /* Цвет фона кнопки */
@@ -29,4 +30,11 @@
 .login-table-container td {
   text-align: center; /* Выравнивание содержимого по центру */
   padding: 8px; /* Добавление отступов для лучшего визуального восприятия */
+}
+
+@media (max-width: 400px) {
+    .login-container{
+        flex-direction: column;
+        justify-content: center;
+    }
 }

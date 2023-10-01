@@ -147,10 +147,10 @@ export default function EditWalkerDetail({ selectedWalkerDetailId, setEditWalker
           </div>
           <div className='modal-edit-description'>
             <div className="file-upload-container">
-            <label className="custom-file-upload" htmlFor="file-upload-input">
-  Upload File
-</label>
-<input type="file" id="file-upload-input" className="file-upload-input" onChange={handleImageUpload} />
+              <label className="custom-file-upload" htmlFor="file-upload-input">
+                Upload File
+              </label>
+              <input type="file" id="file-upload-input" className="file-upload-input" onChange={handleImageUpload} />
 
             </div>
 

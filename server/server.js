@@ -13,12 +13,12 @@ const dbConfig=require("./config/dbConfig")
 const cloudinaryConfig=require("./config/cloudinaryConfig")
 
 //routes
-const servicesRoute=require("./routes/servicesRoute")
+const walkersRoute=require("./routes/walkersRoute")
 const detailsRoute=require("./routes/detailsRoute")
 const usersRoute=require("./routes/userRoute")
 
 
-app.use("/api/papigo",servicesRoute)
+app.use("/api/papigo",walkersRoute)
 app.use("/api/papigo",detailsRoute)
 app.use("/api/papigo",usersRoute)
 
