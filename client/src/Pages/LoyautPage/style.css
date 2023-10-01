@@ -34,3 +34,9 @@
   .home-page{
     background-color: white !important;
   }
+
+  @media (max-width: 400px){
+    .children-container{
+      width: 100%;
+    }
+  }

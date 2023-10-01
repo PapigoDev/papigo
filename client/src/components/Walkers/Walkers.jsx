@@ -7,6 +7,7 @@ import { LiaUserEditSolid } from 'react-icons/lia';
 import { RiDeleteBin5Line } from 'react-icons/ri';
 import { DeleteWalker } from "../../Api/WalkersApi"
 import { DeleteDetail } from '../../Api/DetailsApi';
+import { t } from 'i18next';
 
 
 
@@ -103,16 +104,16 @@ export default function Walkers({ walkers, userRole, updateWalkers }) {
                 />
               </div>
               <div className="item-details">
-                <h3>{item?.name}</h3>
-                <p>{item?.specialty}</p>
+                <p className='walker-name'>{item?.name}</p>
+                <p className='walker-speciality'>{item?.specialty}</p>
                 <div className='location-container'>
                   <img src={location} alt="location" />
-                  <p>{item?.address}</p>
+                  <p className='walker-address' >{item?.address}</p>
                 </div>
               </div>
             </div>
             <div className="item-right">
-              <p><span>₼</span>{item?.price}</p>
+              <p className='walker-price'><span className='walker-azn'>₼</span>{item?.price}<span className='walket-time'>/{t('hourly')}</span></p>
             </div>
           </div>
         )))
