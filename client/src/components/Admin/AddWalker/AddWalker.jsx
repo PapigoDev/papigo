@@ -159,7 +159,7 @@ export default function AddWalker({ setAddWalkerModalOpen, updateWalkers }) {
 
 
             {formDetailData.paket.map((item, index) => (
-              <div key={index}>
+              <div className='add-walker-pakets' key={index}>
                 <div className='add-walker-line'>
                   <input
                     type="text"

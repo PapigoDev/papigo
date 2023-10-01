@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import "./style.css";
 import location from "../../assets/img/location.svg"
 import EditWalkerModal from '../Admin/EditWalkerModal/EditWalkerModal';
-import { BiEditAlt } from 'react-icons/bi';
+import { LiaUserEditSolid } from 'react-icons/lia';
 import { RiDeleteBin5Line } from 'react-icons/ri';
 import { DeleteWalker } from "../../Api/WalkersApi"
 import { DeleteDetail } from '../../Api/DetailsApi';
@@ -78,7 +78,7 @@ export default function Walkers({ walkers, userRole, updateWalkers }) {
             <div className="item-right">
               <p><span>₼</span>{item?.price}</p>
               <div className='walker-buttons'>
-                <button className="edit-button-small" onClick={(event) => handleModalEdit(item, event)}><BiEditAlt /></button>
+                <button className="edit-button-small" onClick={(event) => handleModalEdit(item, event)}><LiaUserEditSolid /></button>
                 <button className="delete-button-small" onClick={(event) => deleteWalker(item, event)} ><RiDeleteBin5Line /></button>
 
               </div>
