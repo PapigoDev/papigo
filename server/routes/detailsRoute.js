@@ -38,7 +38,8 @@ router.get("/get-details", async (req, res) => {
 router.get("/get-current-detail/:id", async (req, res) => {
     const id = req.params.id;
     try {
-        const detail = await Details.findOne({ service: id }).populate("walker");
+        const detail = await Details.findOne({ walker: id }).populate("walker");
+        console.log(detail)
         res.send({
             success: true,
             data: detail

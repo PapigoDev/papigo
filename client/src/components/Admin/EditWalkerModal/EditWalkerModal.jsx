@@ -109,7 +109,7 @@ export default function EditModal({ selectedWalkerId, closeModal, updateWalkers 
     <div className='modal-container' onClick={closeModal} >
       <div className="edit-walker-modal" onClick={(e) => e.stopPropagation()}>
         <h1>Edit Walker</h1>
-        <form className="modal-content">
+        <form className="edit-walker-modal-content">
           <div className='edit-walker-image-flex'>
             <div className='modal-image-container'>
               <img
@@ -129,12 +129,12 @@ export default function EditModal({ selectedWalkerId, closeModal, updateWalkers 
 
             </div>
           </div>
-          <div>
+          <div className='edit-walker-modal-name'>
             <input type="text" name="nameAz" placeholder={"name Az"} value={formData?.nameAz} onChange={handleChange} />
             <input type="text" name="nameRu" placeholder={"name Ru"} value={formData?.nameRu} onChange={handleChange} />
             <input type="text" name="nameEn" placeholder={"name En"} value={formData?.nameEn} onChange={handleChange} />
           </div>
-          <div>
+          <div className='edit-walker-modal-name'>
             <input type="text" name="specialtyAz" placeholder={"specialty Az"} value={formData?.specialtyAz} onChange={handleChange} />
             <input type="text" name="specialtyRu" placeholder={"specialty Ru"} value={formData?.specialtyRu} onChange={handleChange} />
             <input type="text" name="specialtyEn" placeholder={"specialty En"} value={formData?.specialtyEn} onChange={handleChange} />

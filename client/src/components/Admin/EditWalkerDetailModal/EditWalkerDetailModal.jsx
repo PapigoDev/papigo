@@ -20,6 +20,7 @@ export default function EditWalkerDetail({ selectedWalkerDetailId, setEditWalker
 
 
   const getDataDetailWithoutLanguage = async (id) => {
+    console.log(id)
     try {
       const response = await GetDetailWithoutLanguage(id)
       if (response.success) {
@@ -35,6 +36,7 @@ export default function EditWalkerDetail({ selectedWalkerDetailId, setEditWalker
 
 
   useEffect(() => {
+    console.log(detailData)
     if (detailData) {
       const updatedFormData = {
         descriptionAz: detailData?.description?.az || '',
@@ -153,15 +155,17 @@ export default function EditWalkerDetail({ selectedWalkerDetailId, setEditWalker
               <input type="file" id="file-upload-input" className="file-upload-input" onChange={handleImageUpload} />
 
             </div>
-
+            <div className='edit-walker-detail-line'>
             <input type="text" name="descriptionAz" value={formData.descriptionAz} onChange={handleChange} placeholder='Description Az' />
             <input type="text" name="descriptionRu" value={formData.descriptionRu} onChange={handleChange} placeholder='Description Ru' />
             <input type="text" name="descriptionEn" value={formData.descriptionEn} onChange={handleChange} placeholder='Description En' />
+            </div>
+
           </div>
           <div>
             {formData.paket.map((item, index) => (
               <div key={index}>
-                <div>
+                <div className='edit-walker-detail-line'>
                   <input
                     type="text"
                     name={`paket[${index}].name`}

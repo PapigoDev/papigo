@@ -3,6 +3,7 @@ import { fetchUrl,fetchInstance } from "./fetchInstance";
 
 
 export const GetDetailWithoutLanguage=async(id)=>{
+    console.log(id)
     try {
         const response = await fetch(`${fetchUrl}/api/papigo/get-current-detail/${id}`);
         const data = await response.json();

@@ -1,76 +1,100 @@
 .edit-walker-detail-modal {
-    display: flex;
-    flex-direction: column;
-
-    width: 576px;
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  width: 576px;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
 }
 
 .modal-edit-content {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
 .modal-edit-description {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 .edit-modal-image-container {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    gap: 5px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 5px;
 }
-.edit-modal-image-box{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
+
+.edit-modal-image-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
 }
+
 .edit-modal-image-self-container {
-    display: flex;
-    width: 120px;
-    height: 120px;
-    gap: 5px;
+  display: flex;
+  width: 120px;
+  height: 120px;
+  gap: 5px;
 }
 
 .modal-image {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.file-upload-container {
+  display: flex;
+  align-items: center;
+}
+
+.file-upload-input {
+  display: none;
+}
+
+.custom-file-upload {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.custom-file-upload:hover {
+  background-color: #0056b3;
 }
 
 
+@media (max-width: 600px) {
+  .edit-walker-detail-modal {
+    width: 400px;
+  }
+}
 
-
-  .file-upload-container {
-    display: flex; /* Располагаем элементы внутри flex-контейнера */
-    align-items: center; /* Выравниваем элементы по вертикали по центру */
+@media (max-width: 400px) {
+  .edit-modal-image-container {
+    flex-wrap: wrap;
+}
+  .edit-walker-detail-modal {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+  }
+  .edit-walker-detail-line{
+    width: 100%;
+  }
+  .edit-walker-detail-line input{
+    width: 100%;
   }
   
-  .file-upload-input {
-    display: none; /* Скрываем сам инпут файлов */
-  }
-  
-  .custom-file-upload {
-    background-color: #007bff; /* Синий цвет фона */
-    color: #fff; /* Белый цвет текста */
-    padding: 10px 15px; /* Поля вокруг текста */
-    border-radius: 4px; /* Скругление углов */
-    cursor: pointer; /* Заменяем указатель на руку при наведении */
-    margin-right: 10px; /* Добавляем немного отступа справа */
-  }
-  
-  .custom-file-upload:hover {
-    background-color: #0056b3; /* Изменяем цвет фона при наведении */
-  }
+}

@@ -125,7 +125,7 @@ export default function AddWalker({ setAddWalkerModalOpen, updateWalkers }) {
   return (
     <div className='modal-container' onClick={handleCloseModal} >
       <div className="add-walker-modal" onClick={(e) => e.stopPropagation()}>
-        <form className="modal-content">
+        <form className="add-walker-modal-content">
           <h1>Add Walker</h1>
           <h4>Walker</h4>
           <div className='add-walker-line'>
