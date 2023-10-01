@@ -49,6 +49,7 @@ export default function AdminPage() {
   };
   const openAddWalkerModal = () => {
     setAddWalkerModalOpen(true);
+    document.body.classList.add('modal-open');
   };
 
   useEffect(() => {

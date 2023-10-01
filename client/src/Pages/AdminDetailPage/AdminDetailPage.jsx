@@ -50,6 +50,7 @@ export default function AdminEditPage() {
     
     const openAddWalkerModal = () => {
       setEditWalkerModalOpen(true);
+      document.body.classList.add('modal-open');
     };
   
     useEffect(() => {

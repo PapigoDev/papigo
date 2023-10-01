@@ -10,9 +10,14 @@ export default function Item({ walkerData, detailsData, userRole }) {
     const [selectedItem, setSelectedItem] = useState(null);
 
     const openModal = (item) => {
+        console.log(document.body)
+        document.body.classList.add('modal-open');
+        console.log(document.body)
         setSelectedItem(item);
     };
     const closeModal = () => {
+        console.log(document.body)
+        document.body.classList.remove('modal-open');
         setSelectedItem(null);
     };
     const handleModalClick = (e) => {

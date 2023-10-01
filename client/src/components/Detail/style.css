@@ -32,7 +32,7 @@
     font-size: 12px;
 }
 .item-detail-description {
-    height: 86px;
+    height: auto;
     margin-top: 40px;
 }
 .item-detail-description p {
@@ -92,6 +92,10 @@
     font-size: 12px;
     margin-right: 4px;
 }
+
+.modal-open {
+    overflow: hidden;
+  }
 
   
 

@@ -20,7 +20,6 @@ export default function EditWalkerDetail({ selectedWalkerDetailId, setEditWalker
 
 
   const getDataDetailWithoutLanguage = async (id) => {
-    console.log(id)
     try {
       const response = await GetDetailWithoutLanguage(id)
       if (response.success) {
@@ -106,10 +105,12 @@ export default function EditWalkerDetail({ selectedWalkerDetailId, setEditWalker
     console.log(updatedItem)
     await UpdateDetail(updatedItem, selectedWalkerDetailId)
     setEditWalkerModalOpen(false);
+    document.body.classList.remove('modal-open');
     updateWalkerDetail()
   };
   const handleCloseModal = () => {
     setEditWalkerModalOpen(false)
+    document.body.classList.remove('modal-open');
   };
   const handleImageUpload = async (e) => {
     const selectedFile = e.target.files[0];

@@ -60,6 +60,7 @@ export default function EditModal({ selectedWalkerId, closeModal, updateWalkers 
       price: parseFloat(formData.price),
     };
     closeModal();
+    document.body.classList.remove('modal-open');
     await UpdateWalker(selectedWalkerId, updatedItem)
     updateWalkers()
   };
@@ -74,6 +75,7 @@ export default function EditModal({ selectedWalkerId, closeModal, updateWalkers 
       const response = await UploadWalkerImage(imageFormData);
       if (response.success) {
         closeModal()
+        document.body.classList.remove('modal-open');
         updateWalkers()
       }
     } catch (error) {

@@ -53,6 +53,7 @@ export default function AddWalker({ setAddWalkerModalOpen, updateWalkers }) {
   const handleCloseModal = () => {
 
     setAddWalkerModalOpen(false)
+    document.body.classList.remove('modal-open');
   };
 
   const handleSave = async () => {
@@ -118,6 +119,7 @@ export default function AddWalker({ setAddWalkerModalOpen, updateWalkers }) {
       };
       await PostDetail(updatedDetail)
       setAddWalkerModalOpen(false);
+      document.body.classList.remove('modal-open');
       updateWalkers()
     }
   };

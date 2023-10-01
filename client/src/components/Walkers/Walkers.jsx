@@ -30,6 +30,7 @@ export default function Walkers({ walkers, userRole, updateWalkers }) {
     event.stopPropagation();
     setSelectedWalker(item);
     setIsModalOpen(true);
+    document.body.classList.add('modal-open');
   };
   const deleteWalker = async (item, event) => {
     event.stopPropagation();
@@ -44,6 +45,7 @@ export default function Walkers({ walkers, userRole, updateWalkers }) {
 
   const closeModal = () => {
     setIsModalOpen(false);
+    document.body.classList.remove('modal-open');
     setSelectedWalker(null);
   };
 
@@ -77,7 +79,7 @@ export default function Walkers({ walkers, userRole, updateWalkers }) {
               </div>
             </div>
             <div className="item-right">
-              <p><span>₼</span>{item?.price}</p>
+            <p className='walker-price'><span className='walker-azn'>₼</span>{item?.price}<span className='walket-time'>/{t('hourly')}</span></p>
               <div className='walker-buttons'>
                 <button className="edit-button-small" onClick={(event) => handleModalEdit(item, event)}><LiaUserEditSolid /></button>
                 <button className="delete-button-small" onClick={(event) => deleteWalker(item, event)} ><RiDeleteBin5Line /></button>
