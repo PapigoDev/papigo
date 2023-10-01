@@ -132,7 +132,7 @@ router.post("/upload-image-to-walker-detail", multer({ storage: storage }).singl
         //upload image to cloudinary
         const result = await cloudinary.uploader.upload(req.file.path, { folder: "papigo" })
         const detailId = req.body.detailId
-        await Details.findOneAndUpdate({ service: detailId }, {
+        await Details.findOneAndUpdate({ walker: detailId }, {
             $push: { images: result.secure_url }
         })
         console.log(result.secure_url)
