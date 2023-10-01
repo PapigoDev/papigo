@@ -28,8 +28,8 @@
 
 .login-table-container th,
 .login-table-container td {
-  text-align: center; /* Выравнивание содержимого по центру */
-  padding: 8px; /* Добавление отступов для лучшего визуального восприятия */
+  text-align: center; 
+  padding: 8px; 
 }
 
 @media (max-width: 400px) {

@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import React, { useContext } from 'react';
 import SpinnerContext from '../../../Context/SpinnerContext/SpinnerContext';
 import "./style.css"
