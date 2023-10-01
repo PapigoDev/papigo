@@ -15,7 +15,7 @@ const cloudinaryConfig=require("./config/cloudinaryConfig")
 //routes
 const walkersRoute=require("./routes/walkersRoute")
 const detailsRoute=require("./routes/detailsRoute")
-const usersRoute=require("./routes/userRoute")
+const usersRoute=require("./routes/usersRoute")
 
 
 app.use("/api/papigo",walkersRoute)

@@ -3,7 +3,7 @@ const router=express.Router()
 const bcrypt = require("bcryptjs")
 require('dotenv').config();
 const jwt = require("jsonwebtoken");
-const User=require("../models/userModels");
+const User=require("../models/usersModels");
 const authMiddleWare = require("../authMiddleWare/authMiddleWare.jsx");
 
 router.post("/register",async(req,res)=>{
