@@ -79,7 +79,7 @@ export default function Walkers({ walkers, userRole, updateWalkers }) {
               </div>
             </div>
             <div className="item-right">
-            <p className='walker-price'><span className='walker-azn'>₼</span>{item?.price}<span className='walket-time'>/{t('hourly')}</span></p>
+            <p className='walker-price'><span className='walker-azn'>₼</span>{item?.price}<span className='walket-time'>/{t('time')}</span></p>
               <div className='walker-buttons'>
                 <button className="edit-button-small" onClick={(event) => handleModalEdit(item, event)}><LiaUserEditSolid /></button>
                 <button className="delete-button-small" onClick={(event) => deleteWalker(item, event)} ><RiDeleteBin5Line /></button>
@@ -115,7 +115,7 @@ export default function Walkers({ walkers, userRole, updateWalkers }) {
               </div>
             </div>
             <div className="item-right">
-              <p className='walker-price'><span className='walker-azn'>₼</span>{item?.price}<span className='walket-time'>/{t('hourly')}</span></p>
+              <p className='walker-price'><span className='walker-azn'>₼</span>{item?.price}<span className='walket-time'>/{t('time')}</span></p>
             </div>
           </div>
         )))

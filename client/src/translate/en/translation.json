@@ -9,5 +9,6 @@
     "ru":"RU",
     "en":"EN",
     "monthly_packages":"Monthly Packages",
-    "hourly":"Hourly"
+    "hourly":"Hourly",
+    "time":"hour"
 }
