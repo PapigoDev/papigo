@@ -56,7 +56,7 @@
     font-size: 14px;
 }
 .pakets-container {
-    margin-top: 41px;
+    margin-top: 40px;
 }
 .paket-title {
     color: #808080;
@@ -115,9 +115,9 @@
         font-size: 14px;
     }
     .item-detail-description {
-        height: 102px;
+        height: 100%;
         padding: 10px;
-        margin-top: 0px;
+        margin-top: 10px;
     }
     .item-detail-description p {
         font-size: 14px;
@@ -127,7 +127,10 @@
         top: -30px;
         z-index: 100;
     }
-    .detail-price,
+    .detail-price{
+        align-items: center;
+        margin-top: 15px;
+    }
     .pakets-items {
         align-items: flex-end;
     }
