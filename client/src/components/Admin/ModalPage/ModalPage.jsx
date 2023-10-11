@@ -24,6 +24,13 @@ const data = [
 
 
 export default function ModalPage({ selectedItem, handleModalClick }) {
+
+    const handleWhatsAppClick = () => {
+        const phoneNumber = '+994518305100'; // Номер телефона для WhatsApp
+        const message = 'Salam!'; // Ваше сообщение
+        const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        window.open(url, '_blank');
+      };
     return (
         <div className="modal-container" onClick={handleModalClick}>
             <div className="modal">
@@ -56,7 +63,7 @@ export default function ModalPage({ selectedItem, handleModalClick }) {
                 <div className="modal-whatsapp-container">
                 <div><img src={whatsapp} alt="" />
                         </div>
-                        <p>Whatsappdan təklif göndər</p>
+                        <p onClick={handleWhatsAppClick}>Whatsappdan təklif göndər</p>
                 </div>
 
             </div>
