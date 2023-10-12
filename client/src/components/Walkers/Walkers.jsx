@@ -15,6 +15,8 @@ export default function Walkers({ walkers, userRole, updateWalkers }) {
   const [selectedWalker, setSelectedWalker] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  document.body.classList.remove('modal-open');
+
 
   const navigate = useNavigate()
 
