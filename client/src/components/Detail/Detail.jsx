@@ -52,7 +52,9 @@ export default function Item({ walkerData, detailsData, userRole }) {
                         <div className="item-detail-description">
                             <p>{detailsData?.description}</p>
                         </div>
-                        <div className="detail-price">
+                        <div className="detail-price"
+                         onClick={() => openModal({ name: "hourly", price: walkerData?.price })}
+                        >
                             <div className='detail-price-left'>
                                 <p className='detail-price-time'>{t('hourly')}</p>
                                 <p className='detail-price-title'>{walkerData?.specialty}</p>
@@ -115,8 +117,10 @@ export default function Item({ walkerData, detailsData, userRole }) {
                         <div className="item-detail-description">
                             <p>{detailsData?.description}</p>
                         </div>
-                        <div className="detail-price">
-                            <div className='detail-price-left'>
+                        <div className="detail-price"
+                        onClick={() => openModal({ name: "hourly", price: walkerData?.price })}
+                        >
+                        <div className='detail-price-left'>
                                 <p className='detail-price-time'>{t('hourly')}</p>
                                 <p className='detail-price-title'>{walkerData?.specialty}</p>
                             </div>

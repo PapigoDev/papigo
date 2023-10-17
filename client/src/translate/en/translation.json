@@ -9,6 +9,14 @@
     "ru":"RU",
     "en":"EN",
     "monthly_packages":"Monthly Packages",
+    "monthly":"Monthly",
     "hourly":"Hourly",
-    "time":"hour"
+    "time":"hour",
+    "professionalDogWalking":"Professional dog walking",
+    "theNaturalNeedsOfTheDog":"The natural needs of the dog",
+    "realTimeNotification":"Real-time notification",
+    "dogWalking2aWeek":"Dog walking twice a week",
+    "dogWalking4aWeek":"Walking the dog 4 times a week",
+    "warning":"Papigo is not responsible for additional services",
+    "whatsapp":"Send an offer on Whatsapp"
 }

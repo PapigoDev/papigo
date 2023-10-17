@@ -9,7 +9,16 @@
     "ru":"РУС",
     "en":"АНГ",
     "monthly_packages":"Ежемесячные Пакеты",
+    "monthly":"Ежемесячно",
     "hourly":"Ежечасно",
-    "time":"час"
-  }
+    "time":"час",
+    "professionalDogWalking":"Профессиональная выгулка собак",
+    "theNaturalNeedsOfTheDog":"Естественные потребности собаки",
+    "realTimeNotification":"Уведомление в режиме реального времени",
+    "dogWalking2aWeek":"Выгул собаки 2 раза в неделю",
+    "dogWalking4aWeek":"Выгул собаки 4 раза в неделю",
+    "warning":"Papigo не несет ответственность за дополнительные услуги",
+    "whatsapp":"Отправить предложение в WhatsApp"
+    
+}
   
