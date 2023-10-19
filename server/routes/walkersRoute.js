@@ -1,6 +1,7 @@
 const express=require("express")
 const router=express.Router()
 const Walkers=require("../models/walkersModels");
+const Details=require("../models/detailsModels");
 const cloudinary = require("../config/cloudinaryConfig")
 const multer = require('multer');
 const mongoose = require('mongoose');
@@ -127,6 +128,20 @@ router.put("/update-walker/:id",authMiddleWare, async (req, res) => {
   });
   router.delete("/delete-walker/:id",authMiddleWare, async (req, res) => {
     try {
+
+        const oldImage = await Walkers.findById(req.params.id);
+        const oldImageUrl = oldImage.image[0].split("/").slice(-2).join("/").split(".")[0];
+        await cloudinary.uploader.destroy(oldImageUrl);
+
+
+        const oldDetail = await Details.findOne({ walker: req.params.id });
+        for (const imageUrl of oldDetail.images) {
+            const public_id = imageUrl.split("/").slice(-2).join("/").split(".")[0];
+            await cloudinary.uploader.destroy(public_id);
+        }
+
+
+
         await Walkers.findByIdAndDelete(req.params.id)
         res.send({
             success: true,
@@ -169,9 +184,19 @@ const storage = multer.diskStorage({
 router.post("/upload-image-to-walker", multer({ storage: storage }).single("file"), async (req, res) => {
     try {
         //upload image to cloudinary
+
+        const walkerId = req.body.productId
+        
+        const oldImage = await Walkers.findById(walkerId);
+        const imageArray = oldImage.image;
+
+        if (Array.isArray(imageArray) && imageArray.length > 0) {   
+        const oldImageUrl = imageArray[0].split("/").slice(-2).join("/").split(".")[0];
+        await cloudinary.uploader.destroy(oldImageUrl);
+        }
+        
         const result = await cloudinary.uploader.upload(req.file.path, { folder: "papigo" })
-        const productId = req.body.productId
-        await Walkers.findByIdAndUpdate(productId, {
+        await Walkers.findByIdAndUpdate(walkerId, {
             $set: { image: result.secure_url }
         })
         res.send({

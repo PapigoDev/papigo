@@ -24,11 +24,14 @@
 .item-image {
     width: 76px;
     height: 76px;
+    object-fit: cover;
+
 }
 .item-image img {
     max-width: 100%;
     border-radius: 50%;
     height: 100%;
+    object-fit: cover;
 }
 .item-right {
     font-weight: bold;

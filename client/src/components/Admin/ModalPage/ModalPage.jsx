@@ -7,57 +7,57 @@ import { t } from 'i18next';
 const data = [
     {
         id: 1,
-        content: t("professionalDogWalking"),
+        content: "professionalDogWalking",
     },
     {
         id: 2,
-        content: t("theNaturalNeedsOfTheDog"),
+        content: "theNaturalNeedsOfTheDog",
     },
     {
         id: 3,
-        content: t("realTimeNotification"),
+        content: "realTimeNotification",
     },
 ];
 const data1 = [
     {
         id: 1,
-        content: t("dogWalking2aWeek"),
+        content: "dogWalking2aWeek",
     },
     {
         id: 2,
-        content: t("theNaturalNeedsOfTheDog"),
+        content: "theNaturalNeedsOfTheDog",
     },
     {
         id: 3,
-        content: t("realTimeNotification"),
+        content: "realTimeNotification",
     },
 ];
 const data2 = [
     {
         id: 1,
-        content: t("dogWalking4aWeek"),
+        content: "dogWalking4aWeek",
     },
     {
         id: 2,
-        content: t("theNaturalNeedsOfTheDog"),
+        content: "theNaturalNeedsOfTheDog",
     },
     {
         id: 3,
-        content: t("realTimeNotification"),
+        content: "realTimeNotification",
     },
 ];
 const data3 = [
     {
         id: 1,
-        content: t("dogWalking4aWeek"),
+        content:"dogWalking4aWeek",
     },
     {
         id: 2,
-        content: t("theNaturalNeedsOfTheDog"),
+        content: "theNaturalNeedsOfTheDog",
     },
     {
         id: 3,
-        content: t("realTimeNotification"),
+        content:"realTimeNotification",
     },
 ];
 
@@ -111,7 +111,7 @@ export default function ModalPage({ selectedItem, handleModalClick }) {
                         >
                             <div><img src={span} alt="span" />
                             </div>
-                            <p>{item.content}</p>
+                            <p>{t(item.content)}</p>
                         </div>
                     ))}
                 </div>

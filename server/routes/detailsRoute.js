@@ -39,7 +39,6 @@ router.get("/get-current-detail/:id", async (req, res) => {
     const id = req.params.id;
     try {
         const detail = await Details.findOne({ walker: id }).populate("walker");
-        console.log(detail)
         res.send({
             success: true,
             data: detail
@@ -93,11 +92,20 @@ router.get("/get-current-detail-lang-filter", async (req, res) => {
     }
 });
 router.put("/update-detail/:id",authMiddleWare, async (req, res) => {
-    console.log("first")
     const detailId = req.params.id;
-    console.log(detailId)
-  
     try {
+
+        const oldDetail = await Details.findOne({ walker: detailId });
+
+        const imagesToKeep = req.body.images
+        const imagesToDelete = oldDetail.images.filter(image => !imagesToKeep.includes(image));
+        for (const imageUrl of imagesToDelete) {
+            const public_id = imageUrl.split("/").slice(-2).join("/").split(".")[0];
+            // console.log(public_id)          //'papigo/shhmcfdixogtwjzpnfop'
+
+            await cloudinary.uploader.destroy(public_id);
+        }
+
         const updatedDetail = await Details.findOneAndUpdate({ walker: detailId },req.body,{ new: true });
   
       if (!updatedDetail) {
@@ -127,7 +135,6 @@ const storage = multer.diskStorage({
     }
 });
 router.post("/upload-image-to-walker-detail", multer({ storage: storage }).single("file"), async (req, res) => {
-    console.log("first")
     try {
         //upload image to cloudinary
         const result = await cloudinary.uploader.upload(req.file.path, { folder: "papigo" })
@@ -135,7 +142,6 @@ router.post("/upload-image-to-walker-detail", multer({ storage: storage }).singl
         await Details.findOneAndUpdate({ walker: detailId }, {
             $push: { images: result.secure_url }
         })
-        console.log(result.secure_url)
         res.send({
             success: true,
             message: "Image uploaded successfully",
