@@ -11,6 +11,7 @@ const walkersSchema = new mongoose.Schema(
         specialty: nameSchema,
         address: nameSchema,
         price: { type: Number },
+        mobile:{ type: Number },
     },
     {
         timestamps: true,

@@ -5,7 +5,8 @@ import ModalPage from '../Admin/ModalPage/ModalPage';
 import { useTranslation } from 'react-i18next';
 
 
-export default function Item({ walkerData, detailsData, userRole }) {
+export default function Detail({ walkerData, detailsData, userRole }) {
+    console.log(walkerData)
     const { t } = useTranslation();
     const [selectedItem, setSelectedItem] = useState(null);
 
@@ -33,7 +34,7 @@ export default function Item({ walkerData, detailsData, userRole }) {
                             <div className="item-detail-image">
                                 <img
                                     className='detail-image'
-                                    src={!walkerData?.image || walkerData?.image.length === 0
+                                    src={!walkerData?.image || walkerData?.image.length === 0 
                                         ? "https://res.cloudinary.com/dmrh8jdqv/image/upload/v1696154633/papigo/a9rohersuogok1auzgob.png"
                                         : walkerData?.image
                                     }
@@ -70,23 +71,23 @@ export default function Item({ walkerData, detailsData, userRole }) {
 
                             {detailsData && detailsData.paket.map((item) => (
                                 <div
-                                    key={item.name}
+                                    key={item?.name}
                                     className='pakets-items'
                                     onClick={() => openModal(item)}
                                 >
                                     <div className="pakets-left">
-                                        <p className="paket-left-title">{item.name}</p>
+                                        <p className="paket-left-title">{item?.name}</p>
                                         <p className="paket-left-service">{walkerData?.specialty}</p>
-                                        <p className="paket-left-week">{item.weekWalker}</p>
+                                        <p className="paket-left-week">{item?.weekWalker}</p>
                                     </div>
                                     <div className="pakets-right">
                                         <p>
-                                            <span>₼</span>{item.price}
+                                            <span>₼</span>{item?.price}
                                         </p>
                                     </div>
                                 </div>
                             ))}
-                            {selectedItem && (<ModalPage selectedItem={selectedItem} handleModalClick={handleModalClick} />
+                            {selectedItem && (<ModalPage walkerData={walkerData} selectedItem={selectedItem} handleModalClick={handleModalClick} />
                             )}
                         </div>
                     </div>
@@ -98,7 +99,7 @@ export default function Item({ walkerData, detailsData, userRole }) {
                             <div className="item-detail-image">
                                 <img
                                     className='detail-image'
-                                    src={!walkerData?.image || walkerData?.image.length === 0
+                                    src={!walkerData?.image || walkerData?.image.length === 0 
                                         ? "https://res.cloudinary.com/dmrh8jdqv/image/upload/v1696154633/papigo/a9rohersuogok1auzgob.png"
                                         : walkerData?.image
                                     }
@@ -134,23 +135,23 @@ export default function Item({ walkerData, detailsData, userRole }) {
                             <p className='paket-title'>{t('monthly_packages')}</p>
                             {detailsData && detailsData.paket.map((item) => (
                                 <div
-                                    key={item.name}
+                                    key={item?.name}
                                     className='pakets-items'
                                     onClick={() => openModal(item)}
                                 >
                                     <div className="pakets-left">
-                                        <p className="paket-left-title">{item.name}</p>
+                                        <p className="paket-left-title">{item?.name}</p>
                                         <p className="paket-left-service">{walkerData?.specialty}</p>
-                                        <p className="paket-left-week">{item.weekWalker}</p>
+                                        <p className="paket-left-week">{item?.weekWalker}</p>
                                     </div>
                                     <div className="pakets-right">
                                         <p>
-                                            <span>₼</span>{item.price}
+                                            <span>₼</span>{item?.price}
                                         </p>
                                     </div>
                                 </div>
                             ))}
-                            {selectedItem && (<ModalPage selectedItem={selectedItem} handleModalClick={handleModalClick} />
+                            {selectedItem && (<ModalPage walkerData={walkerData} selectedItem={selectedItem} handleModalClick={handleModalClick} />
                             )}
                         </div>
                     </div>

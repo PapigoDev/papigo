@@ -2,6 +2,7 @@ import React from 'react'
 import "./style.css"
 import span from "../../../assets/img/span.png"
 import whatsapp from "../../../assets/img/whatsapp.png"
+import { useTranslation } from 'react-i18next';
 import { t } from 'i18next';
 
 const data = [
@@ -62,15 +63,17 @@ const data3 = [
 ];
 
 
-export default function ModalPage({ selectedItem, handleModalClick }) {
+export default function ModalPage({ walkerData,selectedItem, handleModalClick }) {
+    console.log(walkerData)
+    console.log(selectedItem)
+
     const handleWhatsAppClick = () => {
-        const phoneNumber = '+994518305100';
-        const message = 'Salam!'; // Ваше сообщение
+        const phoneNumber = `+994${walkerData?.mobile}`;
+        const message = `${walkerData?.name} ${selectedItem?.name}`;
         const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
         window.open(url, '_blank');
     };
 
-    // Определите, какие данные (data1, data2, data3) использовать на основе selectedItem.name
     let dataToShow = [];
     switch (selectedItem.name) {
         case 'hourly':
@@ -93,25 +96,25 @@ export default function ModalPage({ selectedItem, handleModalClick }) {
     return (
         <div className="modal-container" onClick={handleModalClick}>
             <div className="modal">
-                <p className='modat-title'>{selectedItem.name === "hourly" ? t('hourly') : selectedItem.name}</p>
+                <p className='modat-title'>{selectedItem?.name === "hourly" ? t('hourly') : selectedItem?.name}</p>
                 <div className='modal-price'>
                     <div className='modal-price-items'>
-                        <span>₼</span><p>{selectedItem.price}</p>
+                        <span>₼</span><p>{selectedItem?.price}</p>
                     </div>
                     <div>
-                        <span className='modal-month'>{selectedItem.name === "hourly" ? t('hourly') : t("monthly")}</span>
+                        <span className='modal-month'>{selectedItem?.name === "hourly" ? t('hourly') : t("monthly")}</span>
                     </div>
                 </div>
                 <div className='modal-datas'>
                     {dataToShow.map((item) => (
                         <div
-                            key={item.id}
+                            key={item?.id}
                             className='modal-data'
                             onClick={() => handleModalClick(item)}
                         >
                             <div><img src={span} alt="span" />
                             </div>
-                            <p>{t(item.content)}</p>
+                            <p>{t(item?.content)}</p>
                         </div>
                     ))}
                 </div>
@@ -119,10 +122,13 @@ export default function ModalPage({ selectedItem, handleModalClick }) {
                     <p>{t("warning")}</p>
                 </div>
 
-                <div className="modal-whatsapp-container">
+                <div 
+                className="modal-whatsapp-container"
+                onClick={handleWhatsAppClick}
+                >
                     <div><img src={whatsapp} alt="" />
                     </div>
-                    <p onClick={handleWhatsAppClick}>{t("whatsapp")}</p>
+                    <p >{t("whatsapp")}</p>
                 </div>
             </div>
         </div>

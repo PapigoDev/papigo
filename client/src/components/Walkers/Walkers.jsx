@@ -12,6 +12,8 @@ import { t } from 'i18next';
 
 
 export default function Walkers({ walkers, userRole, updateWalkers }) {
+
+  console.log(walkers)
   const [selectedWalker, setSelectedWalker] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 

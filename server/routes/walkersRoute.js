@@ -186,15 +186,17 @@ router.post("/upload-image-to-walker", multer({ storage: storage }).single("file
         //upload image to cloudinary
 
         const walkerId = req.body.productId
+        console.log(walkerId)
         
         const oldImage = await Walkers.findById(walkerId);
         const imageArray = oldImage.image;
 
-        if (Array.isArray(imageArray) && imageArray.length > 0) {   
+        if (Array.isArray(imageArray) && imageArray.length > 0 && imageArray[0]!=="") {   
         const oldImageUrl = imageArray[0].split("/").slice(-2).join("/").split(".")[0];
         await cloudinary.uploader.destroy(oldImageUrl);
         }
         
+        console.log("не popal")
         const result = await cloudinary.uploader.upload(req.file.path, { folder: "papigo" })
         await Walkers.findByIdAndUpdate(walkerId, {
             $set: { image: result.secure_url }

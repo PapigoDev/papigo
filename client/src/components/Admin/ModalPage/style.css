@@ -72,6 +72,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
     gap: 15px;
     padding: 5px;
     width: 100%;

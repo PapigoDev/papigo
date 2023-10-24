@@ -95,6 +95,7 @@ export default function AddWalker({ setAddWalkerModalOpen, updateWalkers }) {
       },
       image: formData.image,
       price: parseFloat(formData.price),
+      mobile: parseFloat(formData.mobile),
     };
     const response = await AddWalkerApi(updatedWalker)
     if (response.succes) {
@@ -148,6 +149,7 @@ export default function AddWalker({ setAddWalkerModalOpen, updateWalkers }) {
             <div className='add-walker-line'>
 
               <input type="text" name="price" value={formData.price} onChange={handleChange} placeholder='price' required/>
+              <input type="text" name="mobile" value={formData.mobile} onChange={handleChange} placeholder='505001020' required/>
             </div>
             <div className='add-walker-line'>
               <input type="text" name="descriptionAz" value={formDetailData.descriptionAz} onChange={(e) => handleChangeDetail(e, 0, 'descriptionAz')} placeholder='description Az' required/>
@@ -180,6 +182,7 @@ export default function AddWalker({ setAddWalkerModalOpen, updateWalkers }) {
                     placeholder={`paket ${index + 1} price`}
                   />
                 </div>
+                
 
 <div className='add-walker-line'>
 

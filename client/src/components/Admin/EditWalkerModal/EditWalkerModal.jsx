@@ -19,6 +19,7 @@ export default function EditModal({ selectedWalkerId, closeModal, updateWalkers 
     addressRu: (walkers && walkers.address.ru) || "",
     addressEn: (walkers && walkers.address.en) || "",
     price: (walkers && walkers.price) || "",
+    mobile: (walkers && walkers.mobile) || "",
     image: (walkers && walkers.image && walkers.image[0]) || "",
   });
 
@@ -58,6 +59,7 @@ export default function EditModal({ selectedWalkerId, closeModal, updateWalkers 
       },
       image: formData.image,
       price: parseFloat(formData.price),
+      mobile: parseFloat(formData.mobile),
     };
     closeModal();
     document.body.classList.remove('modal-open');
@@ -67,6 +69,7 @@ export default function EditModal({ selectedWalkerId, closeModal, updateWalkers 
 
   const handleImageUpload = async (e) => {
     const selectedFile = e.target.files[0];
+    console.log(selectedFile)
     try {
       const imageFormData = new FormData();
       imageFormData.append("productId", selectedWalkerId);
@@ -102,6 +105,7 @@ export default function EditModal({ selectedWalkerId, closeModal, updateWalkers 
         addressRu: walkers.address.ru || "",
         addressEn: walkers.address.en || "",
         price: walkers.price || "",
+        mobile: walkers.mobile || "",
         image: walkers.image && walkers.image.length > 0 ? walkers.image[0] : "",
       });
     }
@@ -146,6 +150,7 @@ export default function EditModal({ selectedWalkerId, closeModal, updateWalkers 
           <input type="text" name="addressEn" placeholder={"address En"} value={formData?.addressEn} onChange={handleChange} />
           <div>
             <input type="text" name="price" value={formData?.price} onChange={handleChange} />
+            <input type="text" name="mobile" value={formData?.mobile} onChange={handleChange} />
           </div>
           <div className='add-walker-buttons'>
             <button type="button" className='save-button' onClick={handleSave}>Save</button>
