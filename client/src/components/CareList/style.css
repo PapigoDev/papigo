@@ -3,18 +3,50 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 5px;
+    width: 320px;
 }
 .care-list{
     margin-top: 5%;
     border-radius: 8px;
     border: 1px #D0D5DD solid;
     padding: 10px;
-    height: 93px;
-    width: 163px;
+    height: 81.58px;
+    width: 142.98px;
     cursor: pointer;
 }
 
 .care-list img {
     position: relative;
-    margin-left: 90px;
+    margin-left: 75px;
+    margin-top: -5px;
+    width: 38.6px;
   }
+
+
+@media (min-width: 1024px) {
+  
+    .care-lists {
+        justify-content: space-between;
+      width: 533.71px; 
+      height: 314.31px;
+    }
+    .care-list{
+        margin-top: 0;
+        border-radius: 8px;
+        border: 1px #D0D5DD solid;
+        padding: 31px;
+        cursor: pointer;
+        height: 144.71px;
+        width: 253.63px;
+    }
+    .care-list img {
+        height: 67.94px;
+        width: 62.24px;
+        position: relative;
+        margin-left: 124px;
+        margin-top: 3px;
+    }
+  
+  
+  }
+  

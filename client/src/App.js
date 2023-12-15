@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import LoyautPage from './Pages/LoyautPage/LoyautPage';
 import HomePage from './Pages/HomePage/HomePage';
-import ServicePage from './Pages/ServicePage/ServicePage';
+import WalkersPage from './Pages/WalkersPage/WalkersPage';
 import DetailPage from './Pages/DetailPage/DetailPage';
 
 import { I18nextProvider } from 'react-i18next';
@@ -22,7 +22,7 @@ function App() {
             <BrowserRouter>
               <Routes>
                 <Route path="/" element={<LoyautPage backgroundClass='home-page'><HomePage /></LoyautPage>} />
-                <Route path="/walkers" element={<LoyautPage ><ServicePage /></LoyautPage>} />
+                <Route path="/walkers" element={<LoyautPage ><WalkersPage /></LoyautPage>} />
                 <Route path="/detail/:id" element={<LoyautPage><DetailPage /></LoyautPage>} />
                 <Route path="/login" element={<LoyautPage backgroundClass='home-page'><LoginPage /></LoyautPage>}/>
                 <Route path="/admin" element={<LoyautPage><ProtectedPage><AdminPage /></ProtectedPage></LoyautPage>}/>

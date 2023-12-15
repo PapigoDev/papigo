@@ -5,14 +5,17 @@ import Walkers from '../../components/Walkers/Walkers'
 import { GetWalkers } from '../../Api/WalkersApi'
 import SpinnerContext from '../../Context/SpinnerContext/SpinnerContext';
 
-export default function ServicePage() {
+export default function WalkersPage() {
   const {showSpinner,setShowSpinner } = useContext(SpinnerContext);
+  console.log(setShowSpinner)
+  console.log(showSpinner)
   const [walkers, setWalkersData] = useState(null);
   const { t,i18n } = useTranslation();
   const selectedLanguage = i18n.language;
 
   const getDataWalkers = async () => {
     // setShowSpinner(true); // SPINNERI YANDIR
+    console.log(showSpinner)
     try {
       const response = await GetWalkers(selectedLanguage);
       if (response.succes) {
@@ -23,6 +26,7 @@ export default function ServicePage() {
       console.log(error);
     } finally {
       // setShowSpinner(false); // SPINERI SONDUR
+      console.log(showSpinner)
     }
   };
 
@@ -31,10 +35,11 @@ export default function ServicePage() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+
   return (
-    <div className='service-container'>
-      <div className='service-title-container'>
-        <p className='service-title'>{t("service-title")}</p>
+    <div className='walker-container'>
+      <div className='walker-title-container'>
+        <p className='walker-title'>{t("service-title")}</p>
       </div>
       <Walkers walkers={walkers} />
     </div>

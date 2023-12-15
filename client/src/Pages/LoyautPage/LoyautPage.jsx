@@ -12,10 +12,12 @@ export default function LoyautPage({ children,backgroundClass }) {
   
   return (
     <div className={`loyaut-container ${backgroundClass}`}>
-      <div className='logo-container'>
+      
+      <div className={`logo-container ${backgroundClass}`}>
         <img className='logo-image' src={logo} alt="logo" />
         <p onClick={()=>navigate("/")} className='logo-title'>Papigo</p>
       </div>
+
       {showSpinner? <Spinner/> : <div className='children-container'>{children}</div>}
       
     </div>

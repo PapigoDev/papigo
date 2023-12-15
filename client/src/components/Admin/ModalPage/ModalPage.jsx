@@ -2,7 +2,6 @@ import React from 'react'
 import "./style.css"
 import span from "../../../assets/img/span.png"
 import whatsapp from "../../../assets/img/whatsapp.png"
-import { useTranslation } from 'react-i18next';
 import { t } from 'i18next';
 
 const data = [

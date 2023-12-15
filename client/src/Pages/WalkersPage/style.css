@@ -1,17 +1,17 @@
-.service-container{
+.walker-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.service-title-container{
+.walker-title-container{
     height: 64px;
     display: flex;
     align-items: center;
 }
 
-.service-title{
+.walker-title{
     color: #262626;
     font-family: 'Roboto', sans-serif;
     font-weight: 800;

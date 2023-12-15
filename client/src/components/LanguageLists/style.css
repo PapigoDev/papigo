@@ -14,8 +14,15 @@
     width: 60px;
     cursor: pointer;
     border-radius: 8px;
-    background-color: #F2F4F7;
+    /* background-color: #F2F4F7; */
     padding: 2px 5px;
+    position: relative;
+}
+.language-item:hover{
+    border: 1px grey solid;
+}
+.language-item.selected-language {
+    background-color:#E6E6E6; /* Добавьте цвет текста для выделенного языка */
 }
 .language-image{
     width: 16px;
@@ -32,5 +39,14 @@
 }
 .language-item p{
     font-size: 16px;
-    color: brown;
+}
+
+@media (min-width: 1024px) {
+    .language-container{
+        display: flex;
+        position: absolute;
+        margin: -58px;
+        right: 60px;
+    }
+
 }

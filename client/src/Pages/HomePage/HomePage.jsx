@@ -16,14 +16,19 @@ export default function HomePage() {
 
   return (
     <div className='home-container'>
-      <div className='title-container'>
         <p className='homePage-title'>{t('homePage_title')}</p>
+
+        <div className='reverse-container'>
+      <div className='title-container'>
         <div className='homePage-image'>
           <img src={dog} alt='dog' />
         </div>
       </div>
       <CareList />
-      <LanguageLists changeLanguage={changeLanguage} />
+
+        </div>
+      <LanguageLists className='laguage2' changeLanguage={changeLanguage} />
+      
     </div>
   );
 }
