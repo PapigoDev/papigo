@@ -9,7 +9,7 @@
 }
 .item-container {
     width: 586px;
-    height: 120px;
+    height: 84px;
     background-color: #FFFFFF !important;
     display: flex;
     justify-content: space-between;
@@ -22,8 +22,8 @@
     gap: 20px;
 }
 .item-image {
-    width: 76px;
-    height: 76px;
+    width: 60px;
+    height: 60px;
     object-fit: cover;
 
 }
@@ -34,7 +34,7 @@
 }
 .item-right {
     font-weight: bold;
-    font-size: 30px;
+    font-size: 22px;
     display: flex;
         flex-direction: column;
         align-items: center;
@@ -61,6 +61,7 @@
 .walker-name{
     font-size: 16px;
     font-weight: 600;
+    font-family: 'Poppins', sans-serif;
 }
 .walker-speciality{
     font-size: 14px;
@@ -74,11 +75,11 @@
     font-weight: 100;
 }
 
-@media (max-width: 600px) {
+@media (min-width: 594px) {
+
     .item-container {
-        width: 400px;
-        height: 100px;
-        padding: 16px;
+        width: 549px;
+        padding: 12px;
     }
     .item-right {
         align-self: flex-end;
@@ -92,18 +93,47 @@
     .item-details {
         font-size: 14px;
     }
+    .walker-address{
+        font-size: 12px;
+    }
+    .walker-name{
+        font-size: 18px;
+        font-weight: 600;
+    }
 }
+@media (max-width: 594px) {
 
-@media (max-width: 400px) {
     .item-container {
-        width: 100%;
-        height: 100px;
+        width: 400px;
         padding: 12px;
     }
     .item-right {
         align-self: flex-end;
         font-weight: bold;
-        font-size: 18px;
+        font-size: 22px;
+    }
+    .item-right span {
+        font-size: 12px;
+        margin-right: 2px;
+    }
+    .item-details {
+        font-size: 14px;
+        height: 60px;
+    }
+    .walker-name{
+        font-size: 16px;
+        font-weight: 600;
+    }
+}
+
+@media (max-width: 400px) {
+    .item-container {
+        width: 100%;
+        padding: 12px;
+    }
+    .item-right {
+        align-self: flex-end;
+        font-weight: bold;
         display: flex;
         align-items: flex-end;
     }
@@ -118,11 +148,12 @@
         width: 56px;
         height: 56px;
     }
+    .walker-name{
+        font-size: 14px;
+        font-weight: 600;
+    }
 }
 @media (max-width: 335px) {
-    .item-container {
-        height: 80px;
-    }
     .walker-name{
         font-size: 12px;
     }
@@ -134,9 +165,6 @@
     }
     .walket-time{
         font-size: 10px;
-    }
-    .item-right {
-        font-size: 16px;
     }
     
 }

@@ -18,16 +18,20 @@
 
 .homePage-title {
     color: #262626;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 800;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    letter-spacing: -2px;
+    line-height: 44px;
     font-size: 32px;
-    width: 263px;
-    height: 88px;
+    width: 254px;
+    height: 81px;
+    text-align: center;
 }
 
 .homePage-image {
     width: 200px;
     height: 200px;
+    margin-top: 20px;
 }
 
 .homePage-image img {
@@ -65,11 +69,13 @@
 
     .homePage-title {
         color: #262626;
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Inter', sans-serif;
+        line-height: 69px;
         font-weight: 800;
         font-size: 60px;
         width: 499px;
         height: 140px;
+        text-align: left;
     }
 
     .home-container {
