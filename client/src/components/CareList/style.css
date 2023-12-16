@@ -22,6 +22,10 @@
     width: 38.6px;
   }
 
+  .care-list:hover{
+    border: 1px #639af3 solid;
+  }
+
 
 @media (min-width: 1024px) {
   

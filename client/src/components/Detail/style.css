@@ -2,6 +2,7 @@
     margin-top: 86px;
     border-radius: 10px;
     color: #414141;
+    
 }
 .pakets-left{
     display: flex;
@@ -13,6 +14,7 @@
     gap: 20px;
     position: relative;
 }
+
 .item-detail-image {
     width: 96px;
     height: 96px;
@@ -52,6 +54,10 @@
     display: flex;
     justify-content: space-between;
     cursor: pointer;
+    border: 1px transparent solid;
+}
+.detail-price:hover,.pakets-items:hover{
+    border: 1px #639af3 solid;
 }
 .detail-price-time {
     font-weight: 800;
@@ -77,6 +83,7 @@
     justify-content: space-between;
     border-radius: 10px;
     cursor: pointer;
+    border: 1px transparent solid;
 }
 .paket-left-title {
     font-size: 20px;
