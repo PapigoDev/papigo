@@ -13,6 +13,15 @@
     height: 81.58px;
     width: 142.98px;
     cursor: pointer;
+   
+}
+.care-list p{
+  font-family: 'Inter', sans-serif;
+  font-weight: 600px;
+  font-size: 14px;
+  line-height: 21.05px;
+  color: #344054;
+
 }
 
 .care-list img {
@@ -23,7 +32,7 @@
   }
 
   .care-list:hover{
-    border: 1px #639af3 solid;
+    border: 1px #2946D6 solid;
   }
 
 
@@ -49,7 +58,12 @@
         width: 62.24px;
         position: relative;
         margin-left: 124px;
-        margin-top: 3px;
+        margin-top: -10px;
+    }
+    .care-list p{
+      font-size: 20px;
+      line-height: 37.34px;
+      color: #344054;
     }
   
   

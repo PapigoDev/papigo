@@ -17,7 +17,7 @@
 }
 
 .homePage-title {
-    color: #262626;
+    color: #101828;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
     letter-spacing: -2px;
@@ -58,7 +58,7 @@
     }
 
     .reverse-container {
-        margin-top: 12px;
+        margin-top: 50px;
         display: flex;
         flex-direction: row-reverse;
         align-items: center;
@@ -68,10 +68,10 @@
     }
 
     .homePage-title {
-        color: #262626;
+        color: #101828;
         font-family: 'Inter', sans-serif;
-        line-height: 69px;
-        font-weight: 800;
+        line-height: 70px;
+        font-weight: 700;
         font-size: 60px;
         width: 499px;
         height: 140px;
@@ -82,6 +82,7 @@
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
+        margin-top: 85px;
     }
 
     .title-container {
@@ -94,10 +95,6 @@
         width: 272px;
         height: 251px;
         margin-top: -31px
-    }
-
-    .home-container {
-        margin-top: 12px;
     }
 
     .laguage2 {
