@@ -123,3 +123,21 @@
   background-color: #d32f2f;
 }
 
+
+.edit-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 5px;
+  background-color: #28a745; /* Change to your preferred button color */
+  color: #fff; /* Text color */
+  font-size: 16px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-button:hover {
+  background-color: #218838; /* Change to your preferred hover color */
+}
+

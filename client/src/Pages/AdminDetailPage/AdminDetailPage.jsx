@@ -70,7 +70,8 @@ export default function AdminEditPage() {
     <div className='detail-container'>
       <SwiperComponent images={detailsData?.images} />
       <Detail walkerData={walker} detailsData={detailsData} userRole={"login"}/>
-      <button onClick={openAddWalkerModal}>
+      <button onClick={openAddWalkerModal}
+      className={editWalkerModalOpen ? 'cancel-button' : 'edit-button'}>
         {editWalkerModalOpen ? 'Cancel Detail' : 'Edit Detail'}
       </button>
       {editWalkerModalOpen && 
