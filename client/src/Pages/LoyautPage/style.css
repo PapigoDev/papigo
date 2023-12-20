@@ -15,17 +15,18 @@
     display: flex;
     align-items: center;
     gap: 5px;
-    cursor: pointer;
   }
   .logo-title{
     color: #2946D6;
     font-size: 23px;
     font-weight: 800;
+    cursor: pointer;
   }
   
   .logo-image {
     width: 24px;
     height: 24px;
+    cursor: pointer;
   }
   
   /* .children-container{
