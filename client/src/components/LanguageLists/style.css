@@ -45,8 +45,17 @@
     .language-container{
         display: flex;
         position: absolute;
-        margin: -136px;
-        right: 157px;
+        margin: -51px;
+        right: 68px;
+    }
+
+}
+@media (min-width: 1280px) {
+    .language-container{
+        display: flex;
+        position: absolute;
+        margin: -130px;
+        right: 150px;
     }
 
 }

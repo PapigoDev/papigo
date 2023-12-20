@@ -58,7 +58,7 @@
     }
 
     .reverse-container {
-        margin-top: 50px;
+        margin-top: 0px;
         display: flex;
         flex-direction: row-reverse;
         align-items: center;
@@ -82,7 +82,7 @@
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
-        margin-top: 85px;
+        margin-top: 0px;
     }
 
     .title-container {
@@ -112,11 +112,13 @@
     .home-container{
         width: 1120px;
         height: 533.71px;
+        margin-top: 85px;
     }
     .reverse-container {
         position: relative;
         width: 1120px;
         height: 533.71px;
+        margin-top: 50px;
     }
     .homePage-image {
         width: 450px;

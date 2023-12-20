@@ -107,6 +107,12 @@
         font-weight: 600;
     }
 }
+@media (min-width: 1024px) {
+
+    .item-container {
+        width: 669px;
+    }
+}
 @media (max-width: 594px) {
 
     .item-container {
