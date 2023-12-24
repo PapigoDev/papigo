@@ -17,7 +17,7 @@ export default function HomePage() {
   return (
     <div className='home-container'>
         <p className='homePage-title'>{t('homePage_title')}</p>
-
+        <p>CI/CD testing</p>
         <div className='reverse-container'>
       <div className='title-container'>
         <div className='homePage-image'>
