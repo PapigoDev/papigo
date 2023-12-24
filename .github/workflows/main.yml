@@ -23,4 +23,4 @@ jobs:
         chmod 600 ~/.ssh/id_rsa
 
         # Your deployment commands
-        ssh -o StrictHostKeyChecking=yes ${SSH_URL}  "cd /root/papigo/ && git pull origin main && cd ./client && npm run build && pm2 restart 'papigo-server'"
+        ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ${SSH_URL}  "cd /root/papigo/ && git pull origin main && cd ./client && npm run build && pm2 restart 'papigo-server'"
